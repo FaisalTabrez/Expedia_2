@@ -1,1 +1,4 @@
 /agents.md
+*.parquet
+*.csv
+/harvester_checkpoint.txt

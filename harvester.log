@@ -1,0 +1,26 @@
+2026-03-24 18:28:51,815 - WARNING - Could not access E:\EXPEDIA_Data\raw_chunks. Switching to fallback: data\raw_chunks
+2026-03-24 18:28:51,817 - INFO - Executing search: (Aquatic[All Fields] OR Marine[All Fields] OR Freshwater[All Fields]) AND "is_nuccore"[Filter] AND 100:1000000[SLEN] NOT "master"[All Fields]
+2026-03-24 18:28:54,452 - INFO - HTHistory established. WebEnv: MCID_69c28... Hits: 38776512
+2026-03-24 18:28:54,453 - INFO - Resuming from index 0 of 38776512...
+2026-03-24 18:28:57,740 - ERROR - Error fetching batch at 4500: HTTP Error 400: Bad Request
+2026-03-24 18:28:57,823 - ERROR - Error fetching batch at 3000: HTTP Error 400: Bad Request
+2026-03-24 18:29:54,478 - WARNING - Could not access E:\EXPEDIA_Data\raw_chunks. Switching to fallback: data\raw_chunks
+2026-03-24 18:29:54,479 - INFO - Executing search: (Aquatic[All Fields] OR Marine[All Fields] OR Freshwater[All Fields]) AND "is_nuccore"[Filter] AND 100:1000000[SLEN] NOT "master"[All Fields]
+2026-03-24 18:29:56,574 - INFO - HTHistory established. WebEnv: MCID_69c28... Hits: 38776512
+2026-03-24 18:29:56,574 - INFO - Resuming from index 0 of 38776512...
+2026-03-24 18:29:59,352 - ERROR - Error fetching batch at 500: HTTP Error 400: Bad Request
+2026-03-24 18:29:59,444 - ERROR - Error fetching batch at 1000: HTTP Error 400: Bad Request
+2026-03-24 18:29:59,752 - ERROR - Error fetching batch at 4500: HTTP Error 400: Bad Request
+2026-03-24 18:29:59,868 - ERROR - Error fetching batch at 0: IncompleteRead(68600 bytes read)
+2026-03-24 18:31:54,192 - ERROR - Error fetching batch at 12000: Sequence content is undefined
+2026-03-24 18:32:00,349 - ERROR - Error fetching batch at 13000: IncompleteRead(3263529 bytes read)
+2026-03-24 18:32:04,548 - ERROR - Error fetching batch at 11500: Sequence content is undefined
+2026-03-24 18:32:25,011 - ERROR - Error fetching batch at 11000: IncompleteRead(19747522 bytes read)
+2026-03-24 18:58:14,413 - WARNING - Could not access E:\EXPEDIA_Data\chunks. Switching to fallback: data\chunks
+2026-03-24 18:58:14,414 - INFO - Initializing Search on NCBI History Server...
+2026-03-24 18:58:16,759 - INFO - Search Successful. Total Records: 38776512. WebEnv: MCID_69c29...
+2026-03-24 18:58:16,760 - INFO - Starting harvest from index 0 of 38776512...
+2026-03-24 18:58:19,086 - ERROR - Non-retriable HTTP error code 400 at index 3500: HTTP Error 400: Bad Request
+2026-03-24 18:58:19,096 - ERROR - Non-retriable HTTP error code 400 at index 2500: HTTP Error 400: Bad Request
+2026-03-24 18:58:19,647 - ERROR - Non-retriable HTTP error code 400 at index 1000: HTTP Error 400: Bad Request
+2026-03-24 18:58:58,405 - ERROR - Fatal error in main loop: Remote end closed connection without response

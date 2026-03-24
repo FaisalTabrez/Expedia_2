@@ -1,0 +1,9 @@
+2026-03-24 19:15:17,534 - WARNING - Could not access E:\EXPEDIA_Data\chunks. Switching to fallback: data\chunks
+2026-03-24 19:15:17,535 - INFO - Executing search: (Aquatic[All Fields] OR Marine[All Fields] OR Freshwater[All Fields]) AND "is_nuccore"[Filter] AND 100:1000000[SLEN] NOT "master"[All Fields]
+2026-03-24 19:15:21,900 - INFO - Search complete. Found 38776512 records. WebEnv: MCID_69c2956f1365e6bacb074bc5
+2026-03-24 19:15:21,901 - INFO - Resuming from index 0...
+2026-03-24 19:26:56,789 - WARNING - Could not access E:\EXPEDIA_Data\chunks. Switching to fallback: data\chunks
+2026-03-24 19:26:56,790 - INFO - Executing search: (Aquatic[All Fields] OR Marine[All Fields] OR Freshwater[All Fields]) AND "is_nuccore"[Filter] AND 100:1000000[SLEN] NOT "master"[All Fields]
+2026-03-24 19:26:59,522 - INFO - Search complete. Found 38776512 records. WebEnv: MCID_69c298290702dbde990a3017
+2026-03-24 19:26:59,527 - INFO - Resuming from index 42000...
+2026-03-24 19:40:14,866 - ERROR - Error processing batch 148000: initial_value must be str or None, not bytes
