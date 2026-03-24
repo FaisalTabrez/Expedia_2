@@ -7,3 +7,662 @@
 2026-03-24 19:26:59,522 - INFO - Search complete. Found 38776512 records. WebEnv: MCID_69c298290702dbde990a3017
 2026-03-24 19:26:59,527 - INFO - Resuming from index 42000...
 2026-03-24 19:40:14,866 - ERROR - Error processing batch 148000: initial_value must be str or None, not bytes
+2026-03-24 20:32:51,454 - ERROR - Error processing batch 177500: RetryError[<Future at 0x2208bbc8d50 state=finished raised IncompleteRead>]
+2026-03-24 21:07:34,699 - ERROR - Error processing batch 202000: RetryError[<Future at 0x2209044d4d0 state=finished raised IncompleteRead>]
+2026-03-24 21:10:23,091 - ERROR - Error processing batch 411500: initial_value must be str or None, not bytes
+2026-03-24 21:54:21,891 - ERROR - Error processing batch 366500: RetryError[<Future at 0x1d991570050 state=finished raised IncompleteRead>]
+2026-03-24 22:40:13,301 - ERROR - Error processing batch 528000: RetryError[<Future at 0x220f8ea9cd0 state=finished raised IncompleteRead>]
+2026-03-24 22:44:08,556 - ERROR - Error processing batch 527500: RetryError[<Future at 0x1d9a6bb8bd0 state=finished raised IncompleteRead>]
+2026-03-24 22:44:54,294 - ERROR - Error processing batch 527500: RetryError[<Future at 0x220f8e77650 state=finished raised IncompleteRead>]
+2026-03-24 22:54:44,289 - ERROR - Error processing batch 527000: RetryError[<Future at 0x220843d60d0 state=finished raised IncompleteRead>]
+2026-03-24 22:54:47,570 - ERROR - Error processing batch 528000: RetryError[<Future at 0x1d9a6c78250 state=finished raised IncompleteRead>]
+2026-03-24 23:01:43,657 - ERROR - Error processing batch 525000: RetryError[<Future at 0x22090281950 state=finished raised IncompleteRead>]
+2026-03-24 23:03:37,382 - ERROR - Error processing batch 525000: RetryError[<Future at 0x1d9a9477b50 state=finished raised IncompleteRead>]
+2026-03-24 23:57:41,043 - ERROR - Error processing batch 669500: initial_value must be str or None, not bytes
+2026-03-25 00:00:17,296 - ERROR - Error processing batch 692000: initial_value must be str or None, not bytes
+2026-03-25 00:07:34,105 - ERROR - Error processing batch 756500: initial_value must be str or None, not bytes
+2026-03-25 00:13:48,162 - ERROR - Error processing batch 810000: initial_value must be str or None, not bytes
+2026-03-25 00:39:37,908 - ERROR - Error processing batch 1060000: initial_value must be str or None, not bytes
+2026-03-25 00:42:06,875 - ERROR - Error processing batch 1106000: initial_value must be str or None, not bytes
+2026-03-25 00:42:47,876 - ERROR - Error processing batch 1122500: initial_value must be str or None, not bytes
+2026-03-25 00:43:23,268 - ERROR - Error processing batch 1133000: initial_value must be str or None, not bytes
+2026-03-25 00:52:54,030 - ERROR - Error processing batch 1264000: initial_value must be str or None, not bytes
+2026-03-25 01:02:49,614 - ERROR - Error processing batch 1465500: initial_value must be str or None, not bytes
+2026-03-25 01:03:27,202 - ERROR - Error processing batch 1473000: initial_value must be str or None, not bytes
+2026-03-25 01:03:47,131 - ERROR - Error processing batch 1481500: initial_value must be str or None, not bytes
+2026-03-25 01:06:08,118 - ERROR - Error processing batch 1535500: initial_value must be str or None, not bytes
+2026-03-25 01:07:28,478 - ERROR - Error processing batch 1564500: initial_value must be str or None, not bytes
+2026-03-25 01:10:34,826 - ERROR - Error processing batch 1645500: initial_value must be str or None, not bytes
+2026-03-25 01:10:45,331 - ERROR - Error processing batch 1647500: initial_value must be str or None, not bytes
+2026-03-25 01:11:09,997 - ERROR - Error processing batch 1656000: initial_value must be str or None, not bytes
+2026-03-25 01:12:15,219 - ERROR - Error processing batch 1691000: initial_value must be str or None, not bytes
+2026-03-25 01:12:51,745 - ERROR - Error processing batch 1704500: initial_value must be str or None, not bytes
+2026-03-25 01:13:17,845 - ERROR - Error processing batch 1720000: initial_value must be str or None, not bytes
+2026-03-25 01:13:51,887 - ERROR - Error processing batch 1736500: initial_value must be str or None, not bytes
+2026-03-25 01:14:16,571 - ERROR - Error processing batch 1737500: initial_value must be str or None, not bytes
+2026-03-25 01:14:16,585 - ERROR - Error processing batch 1730500: initial_value must be str or None, not bytes
+2026-03-25 01:16:27,506 - ERROR - Error processing batch 1804500: initial_value must be str or None, not bytes
+2026-03-25 01:16:54,739 - ERROR - Error processing batch 1818000: initial_value must be str or None, not bytes
+2026-03-25 01:17:06,192 - ERROR - Error processing batch 1825000: initial_value must be str or None, not bytes
+2026-03-25 01:19:27,556 - ERROR - Error processing batch 1911000: initial_value must be str or None, not bytes
+2026-03-25 01:19:42,943 - ERROR - Error processing batch 1908500: initial_value must be str or None, not bytes
+2026-03-25 01:20:45,145 - ERROR - Error processing batch 1961000: initial_value must be str or None, not bytes
+2026-03-25 01:21:18,623 - ERROR - Error processing batch 1971500: initial_value must be str or None, not bytes
+2026-03-25 01:22:04,312 - ERROR - Error processing batch 2001500: initial_value must be str or None, not bytes
+2026-03-25 01:22:21,631 - ERROR - Error processing batch 2021500: initial_value must be str or None, not bytes
+2026-03-25 01:22:22,124 - ERROR - Error processing batch 2014000: initial_value must be str or None, not bytes
+2026-03-25 01:22:37,340 - ERROR - Error processing batch 2033000: initial_value must be str or None, not bytes
+2026-03-25 01:22:37,750 - ERROR - Error processing batch 2024000: initial_value must be str or None, not bytes
+2026-03-25 01:22:40,898 - ERROR - Error processing batch 2026000: initial_value must be str or None, not bytes
+2026-03-25 01:23:22,040 - ERROR - Error processing batch 2051500: initial_value must be str or None, not bytes
+2026-03-25 01:23:48,811 - ERROR - Error processing batch 2072500: initial_value must be str or None, not bytes
+2026-03-25 01:24:06,593 - ERROR - Error processing batch 2097000: initial_value must be str or None, not bytes
+2026-03-25 01:24:24,962 - ERROR - Error processing batch 2111500: initial_value must be str or None, not bytes
+2026-03-25 01:25:24,414 - ERROR - Error processing batch 2153500: initial_value must be str or None, not bytes
+2026-03-25 01:25:27,457 - ERROR - Error processing batch 2156500: initial_value must be str or None, not bytes
+2026-03-25 01:25:50,782 - ERROR - Error processing batch 2173000: initial_value must be str or None, not bytes
+2026-03-25 01:26:11,024 - ERROR - Error processing batch 2176000: initial_value must be str or None, not bytes
+2026-03-25 01:26:42,747 - ERROR - Error processing batch 2209000: initial_value must be str or None, not bytes
+2026-03-25 01:26:43,079 - ERROR - Error processing batch 2209500: initial_value must be str or None, not bytes
+2026-03-25 01:27:02,959 - ERROR - Error processing batch 2225500: initial_value must be str or None, not bytes
+2026-03-25 01:27:36,665 - ERROR - Error processing batch 2234500: initial_value must be str or None, not bytes
+2026-03-25 01:27:38,441 - ERROR - Error processing batch 2231500: initial_value must be str or None, not bytes
+2026-03-25 01:27:38,441 - ERROR - Error processing batch 2250000: initial_value must be str or None, not bytes
+2026-03-25 01:28:31,586 - ERROR - Error processing batch 2268500: initial_value must be str or None, not bytes
+2026-03-25 01:28:56,713 - ERROR - Error processing batch 2281500: initial_value must be str or None, not bytes
+2026-03-25 01:29:15,160 - ERROR - Error processing batch 2289500: initial_value must be str or None, not bytes
+2026-03-25 01:30:25,989 - ERROR - Error processing batch 2339000: initial_value must be str or None, not bytes
+2026-03-25 01:30:29,118 - ERROR - Error processing batch 2340500: initial_value must be str or None, not bytes
+2026-03-25 01:30:38,521 - ERROR - Error processing batch 2336000: initial_value must be str or None, not bytes
+2026-03-25 01:34:25,798 - ERROR - Error processing batch 2444000: initial_value must be str or None, not bytes
+2026-03-25 01:34:52,268 - ERROR - Error processing batch 2458000: initial_value must be str or None, not bytes
+2026-03-25 01:35:08,564 - ERROR - Error processing batch 2454000: initial_value must be str or None, not bytes
+2026-03-25 01:36:48,541 - ERROR - Error processing batch 2494000: initial_value must be str or None, not bytes
+2026-03-25 01:36:48,775 - ERROR - Error processing batch 2509500: initial_value must be str or None, not bytes
+2026-03-25 01:37:40,270 - ERROR - Error processing batch 2517500: initial_value must be str or None, not bytes
+2026-03-25 01:38:00,927 - ERROR - Error processing batch 2540500: initial_value must be str or None, not bytes
+2026-03-25 01:38:39,856 - ERROR - Error processing batch 2546000: initial_value must be str or None, not bytes
+2026-03-25 01:39:23,722 - ERROR - Error processing batch 2575500: initial_value must be str or None, not bytes
+2026-03-25 01:39:45,345 - ERROR - Error processing batch 2584000: initial_value must be str or None, not bytes
+2026-03-25 01:39:51,394 - ERROR - Error processing batch 2587500: initial_value must be str or None, not bytes
+2026-03-25 01:41:51,321 - ERROR - Error processing batch 2632000: 
+2026-03-25 01:41:53,351 - ERROR - Error processing batch 2622000: 
+2026-03-25 01:41:53,655 - ERROR - Error processing batch 2636500: 
+2026-03-25 01:41:54,701 - ERROR - Error processing batch 2635500: 
+2026-03-25 01:41:57,146 - ERROR - Error processing batch 2622500: 
+2026-03-25 01:41:59,443 - ERROR - Error processing batch 2639000: 
+2026-03-25 01:42:04,912 - ERROR - Error processing batch 2623000: 
+2026-03-25 01:42:06,591 - ERROR - Error processing batch 2625500: 
+2026-03-25 01:42:09,984 - ERROR - Error processing batch 2627500: 
+2026-03-25 01:42:11,002 - ERROR - Error processing batch 2644500: 
+2026-03-25 01:42:11,020 - ERROR - Error processing batch 2627000: 
+2026-03-25 01:42:12,035 - ERROR - Error processing batch 2624000: 
+2026-03-25 01:42:12,035 - ERROR - Error processing batch 2647000: 
+2026-03-25 01:42:13,065 - ERROR - Error processing batch 2646500: 
+2026-03-25 01:42:13,067 - ERROR - Error processing batch 2628000: 
+2026-03-25 01:42:24,625 - ERROR - Error processing batch 2644000: 
+2026-03-25 01:46:41,702 - ERROR - Error processing batch 2704500: initial_value must be str or None, not bytes
+2026-03-25 01:49:59,790 - ERROR - Error processing batch 2778500: initial_value must be str or None, not bytes
+2026-03-25 01:50:06,459 - ERROR - Error processing batch 2800000: initial_value must be str or None, not bytes
+2026-03-25 01:50:19,384 - ERROR - Error processing batch 2805000: initial_value must be str or None, not bytes
+2026-03-25 01:50:41,485 - ERROR - Error processing batch 2792500: initial_value must be str or None, not bytes
+2026-03-25 01:51:38,131 - ERROR - Error processing batch 2831000: initial_value must be str or None, not bytes
+2026-03-25 01:53:00,556 - ERROR - Error processing batch 2864500: 
+2026-03-25 01:53:05,790 - ERROR - Error processing batch 2861500: 
+2026-03-25 01:53:06,829 - ERROR - Error processing batch 2862500: 
+2026-03-25 01:53:07,705 - ERROR - Error processing batch 2847500: 
+2026-03-25 01:53:07,858 - ERROR - Error processing batch 2863000: 
+2026-03-25 01:53:08,727 - ERROR - Error processing batch 2844500: 
+2026-03-25 01:53:09,627 - ERROR - Error processing batch 2863500: 
+2026-03-25 01:53:09,740 - ERROR - Error processing batch 2846000: 
+2026-03-25 01:53:10,789 - ERROR - Error processing batch 2846500: 
+2026-03-25 01:53:10,899 - ERROR - Error processing batch 2864000: 
+2026-03-25 01:53:12,150 - ERROR - Error processing batch 2866000: 
+2026-03-25 01:53:13,392 - ERROR - Error processing batch 2867000: 
+2026-03-25 01:53:48,568 - ERROR - Error processing batch 2849500: 
+2026-03-25 01:54:10,433 - ERROR - Error processing batch 2878500: 
+2026-03-25 01:54:13,149 - ERROR - Error processing batch 2855500: 
+2026-03-25 01:54:14,131 - ERROR - Error processing batch 2875000: 
+2026-03-25 01:54:15,304 - ERROR - Error processing batch 2859000: 
+2026-03-25 01:54:18,097 - ERROR - Error processing batch 2861000: 
+2026-03-25 01:55:14,160 - ERROR - Error processing batch 2895000: 
+2026-03-25 01:55:14,408 - ERROR - Error processing batch 2876000: 
+2026-03-25 01:55:15,453 - ERROR - Error processing batch 2875000: 
+2026-03-25 01:55:19,465 - ERROR - Error processing batch 2891000: 
+2026-03-25 01:55:22,571 - ERROR - Error processing batch 2898000: 
+2026-03-25 01:55:23,597 - ERROR - Error processing batch 2897500: 
+2026-03-25 01:56:19,176 - ERROR - Error processing batch 2918500: 
+2026-03-25 01:56:22,589 - ERROR - Error processing batch 2918000: 
+2026-03-25 01:56:37,326 - ERROR - Error processing batch 2921500: 
+2026-03-25 01:56:38,946 - ERROR - Error processing batch 2900000: 
+2026-03-25 01:56:39,994 - ERROR - Error processing batch 2904000: 
+2026-03-25 01:56:42,390 - ERROR - Error processing batch 2927000: 
+2026-03-25 01:56:42,520 - ERROR - Error processing batch 2907500: 
+2026-03-25 01:56:43,437 - ERROR - Error processing batch 2928500: 
+2026-03-25 01:56:43,812 - ERROR - Error processing batch 2906500: 
+2026-03-25 01:56:44,849 - ERROR - Error processing batch 2907000: 
+2026-03-25 01:56:45,156 - ERROR - Error processing batch 2928000: 
+2026-03-25 01:56:46,043 - ERROR - Error processing batch 2932000: initial_value must be str or None, not bytes
+2026-03-25 01:56:46,570 - ERROR - Error processing batch 2908500: 
+2026-03-25 01:56:47,760 - ERROR - Error processing batch 2929500: 
+2026-03-25 01:56:48,942 - ERROR - Error processing batch 2905500: 
+2026-03-25 01:56:49,979 - ERROR - Error processing batch 2908000: 
+2026-03-25 01:56:51,077 - ERROR - Error processing batch 2930500: 
+2026-03-25 01:57:22,023 - ERROR - Error processing batch 2910500: 
+2026-03-25 01:57:24,782 - ERROR - Error processing batch 2935000: 
+2026-03-25 01:57:28,849 - ERROR - Error processing batch 2935500: 
+2026-03-25 01:57:30,374 - ERROR - Error processing batch 2913500: 
+2026-03-25 01:57:31,394 - ERROR - Error processing batch 2909500: 
+2026-03-25 01:57:31,455 - ERROR - Error processing batch 2930000: 
+2026-03-25 01:57:32,202 - ERROR - Error processing batch 2938500: initial_value must be str or None, not bytes
+2026-03-25 01:57:35,681 - ERROR - Error processing batch 2909000: 
+2026-03-25 01:57:37,128 - ERROR - Error processing batch 2937000: 
+2026-03-25 01:57:38,213 - ERROR - Error processing batch 2933000: 
+2026-03-25 01:57:39,240 - ERROR - Error processing batch 2933500: 
+2026-03-25 01:57:41,085 - ERROR - Error processing batch 2917000: 
+2026-03-25 01:57:41,928 - ERROR - Error processing batch 2937500: 
+2026-03-25 01:57:58,428 - ERROR - Error processing batch 2941500: 
+2026-03-25 01:57:58,949 - ERROR - Error processing batch 2921000: 
+2026-03-25 01:58:00,777 - ERROR - Error processing batch 2940500: 
+2026-03-25 01:58:00,980 - ERROR - Error processing batch 2922000: 
+2026-03-25 01:58:02,776 - ERROR - Error processing batch 2920000: 
+2026-03-25 01:58:03,572 - ERROR - Error processing batch 2941000: 
+2026-03-25 01:58:03,808 - ERROR - Error processing batch 2915000: 
+2026-03-25 01:58:04,589 - ERROR - Error processing batch 2944500: 
+2026-03-25 01:58:04,821 - ERROR - Error processing batch 2915500: 
+2026-03-25 01:58:05,848 - ERROR - Error processing batch 2921500: 
+2026-03-25 01:58:07,235 - ERROR - Error processing batch 2913000: 
+2026-03-25 01:58:18,446 - ERROR - Error processing batch 2920500: 
+2026-03-25 01:58:23,142 - ERROR - Error processing batch 2943500: 
+2026-03-25 01:58:24,173 - ERROR - Error processing batch 2945000: 
+2026-03-25 01:58:24,531 - ERROR - Error processing batch 2923000: 
+2026-03-25 01:58:26,594 - ERROR - Error processing batch 2923500: 
+2026-03-25 01:58:27,607 - ERROR - Error processing batch 2922500: 
+2026-03-25 01:58:31,370 - ERROR - Error processing batch 2924500: 
+2026-03-25 01:58:32,563 - ERROR - Error processing batch 2926500: 
+2026-03-25 01:58:32,989 - ERROR - Error processing batch 2947000: 
+2026-03-25 01:58:33,815 - ERROR - Error processing batch 2924000: 
+2026-03-25 01:58:37,078 - ERROR - Error processing batch 2946500: 
+2026-03-25 01:58:39,102 - ERROR - Error processing batch 2948000: 
+2026-03-25 01:58:40,515 - ERROR - Error processing batch 2925000: 
+2026-03-25 01:58:41,526 - ERROR - Error processing batch 2927000: 
+2026-03-25 01:58:48,990 - ERROR - Error processing batch 2945500: 
+2026-03-25 01:58:51,781 - ERROR - Error processing batch 2946000: 
+2026-03-25 01:58:52,340 - ERROR - Error processing batch 2927500: 
+2026-03-25 01:58:52,806 - ERROR - Error processing batch 2950000: 
+2026-03-25 01:59:00,273 - ERROR - Error processing batch 2930000: 
+2026-03-25 01:59:01,416 - ERROR - Error processing batch 2950500: 
+2026-03-25 01:59:02,242 - ERROR - Error processing batch 2929500: 
+2026-03-25 01:59:02,979 - ERROR - Error processing batch 2934500: initial_value must be str or None, not bytes
+2026-03-25 01:59:05,107 - ERROR - Error processing batch 2932500: 
+2026-03-25 01:59:06,920 - ERROR - Error processing batch 2930500: 
+2026-03-25 01:59:07,930 - ERROR - Error processing batch 2933500: 
+2026-03-25 01:59:17,260 - ERROR - Error processing batch 2931500: 
+2026-03-25 01:59:34,770 - ERROR - Error processing batch 2936500: 
+2026-03-25 01:59:35,390 - ERROR - Error processing batch 2953500: 
+2026-03-25 01:59:41,289 - ERROR - Error processing batch 2958000: 
+2026-03-25 01:59:42,048 - ERROR - Error processing batch 2939000: 
+2026-03-25 01:59:42,328 - ERROR - Error processing batch 2957000: 
+2026-03-25 01:59:43,350 - ERROR - Error processing batch 2957500: 
+2026-03-25 01:59:43,552 - ERROR - Error processing batch 2937500: 
+2026-03-25 01:59:44,379 - ERROR - Error processing batch 2956500: 
+2026-03-25 01:59:44,599 - ERROR - Error processing batch 2935000: 
+2026-03-25 01:59:49,697 - ERROR - Error processing batch 2938000: 
+2026-03-25 01:59:50,724 - ERROR - Error processing batch 2940500: 
+2026-03-25 01:59:51,405 - ERROR - Error processing batch 2959500: 
+2026-03-25 01:59:52,919 - ERROR - Error processing batch 2958500: 
+2026-03-25 01:59:54,162 - ERROR - Error processing batch 2942000: 
+2026-03-25 01:59:55,199 - ERROR - Error processing batch 2941000: 
+2026-03-25 01:59:55,211 - ERROR - Error processing batch 2961500: 
+2026-03-25 02:00:59,239 - ERROR - Error processing batch 2970000: 
+2026-03-25 02:01:06,106 - ERROR - Error processing batch 2950500: 
+2026-03-25 02:01:09,301 - ERROR - Error processing batch 2953000: 
+2026-03-25 02:01:14,624 - ERROR - Error processing batch 2952000: 
+2026-03-25 02:01:16,987 - ERROR - Error processing batch 2965500: 
+2026-03-25 02:01:18,354 - ERROR - Error processing batch 2954500: 
+2026-03-25 02:01:18,805 - ERROR - Error processing batch 2969000: 
+2026-03-25 02:01:22,051 - ERROR - Error processing batch 2956500: 
+2026-03-25 02:01:23,081 - ERROR - Error processing batch 2953500: 
+2026-03-25 02:01:24,100 - ERROR - Error processing batch 2955000: 
+2026-03-25 02:01:24,128 - ERROR - Error processing batch 2974000: 
+2026-03-25 02:01:25,138 - ERROR - Error processing batch 2956000: 
+2026-03-25 02:01:25,837 - ERROR - Error processing batch 2973500: 
+2026-03-25 02:01:26,873 - ERROR - Error processing batch 2973000: 
+2026-03-25 02:01:27,275 - ERROR - Error processing batch 2955500: 
+2026-03-25 02:01:28,742 - ERROR - Error processing batch 2971000: 
+2026-03-25 02:01:51,486 - ERROR - Error processing batch 2975000: 
+2026-03-25 02:01:52,496 - ERROR - Error processing batch 2970500: 
+2026-03-25 02:02:08,695 - ERROR - Error processing batch 2972500: 
+2026-03-25 02:02:13,744 - ERROR - Error processing batch 2971500: 
+2026-03-25 02:02:20,146 - ERROR - Error processing batch 2974500: 
+2026-03-25 02:02:30,550 - ERROR - Error processing batch 2959000: 
+2026-03-25 02:03:03,746 - ERROR - Error processing batch 2981500: 
+2026-03-25 02:03:03,993 - ERROR - Error processing batch 2963000: 
+2026-03-25 02:03:05,016 - ERROR - Error processing batch 2981000: 
+2026-03-25 02:03:06,039 - ERROR - Error processing batch 2982000: 
+2026-03-25 02:03:07,093 - ERROR - Error processing batch 2980000: 
+2026-03-25 02:03:07,245 - ERROR - Error processing batch 2964500: 
+2026-03-25 02:03:08,298 - ERROR - Error processing batch 2964000: 
+2026-03-25 02:03:12,963 - ERROR - Error processing batch 2960500: 
+2026-03-25 02:03:15,934 - ERROR - Error processing batch 2967000: 
+2026-03-25 02:03:16,742 - ERROR - Error processing batch 2983500: 
+2026-03-25 02:03:19,784 - ERROR - Error processing batch 2984500: 
+2026-03-25 02:03:19,906 - ERROR - Error processing batch 2968000: 
+2026-03-25 02:03:21,946 - ERROR - Error processing batch 2967500: 
+2026-03-25 02:03:22,976 - ERROR - Error processing batch 2957000: 
+2026-03-25 02:03:24,015 - ERROR - Error processing batch 2966500: 
+2026-03-25 02:03:25,383 - ERROR - Error processing batch 2984000: 
+2026-03-25 02:03:29,451 - ERROR - Error processing batch 2983000: 
+2026-03-25 02:03:39,850 - ERROR - Error processing batch 2985500: 
+2026-03-25 02:04:00,271 - ERROR - Error processing batch 2986500: 
+2026-03-25 02:04:01,053 - ERROR - Error processing batch 2968500: 
+2026-03-25 02:04:05,306 - ERROR - Error processing batch 2970000: 
+2026-03-25 02:04:16,168 - ERROR - Error processing batch 2988000: 
+2026-03-25 02:04:16,307 - ERROR - Error processing batch 2972000: 
+2026-03-25 02:04:21,705 - ERROR - Error processing batch 2992000: 
+2026-03-25 02:04:21,706 - ERROR - Error processing batch 2988500: 
+2026-03-25 02:04:22,720 - ERROR - Error processing batch 2991000: 
+2026-03-25 02:04:32,188 - ERROR - Error processing batch 2970500: 
+2026-03-25 02:04:35,299 - ERROR - Error processing batch 2995000: 
+2026-03-25 02:04:36,330 - ERROR - Error processing batch 2993000: 
+2026-03-25 02:04:39,847 - ERROR - Error processing batch 2992500: 
+2026-03-25 02:04:42,841 - ERROR - Error processing batch 2971000: 
+2026-03-25 02:04:43,857 - ERROR - Error processing batch 2974500: 
+2026-03-25 02:04:43,889 - ERROR - Error processing batch 2993500: 
+2026-03-25 02:04:51,962 - ERROR - Error processing batch 2994500: 
+2026-03-25 02:04:55,020 - ERROR - Error processing batch 2974000: 
+2026-03-25 02:05:23,297 - ERROR - Error processing batch 2973500: 
+2026-03-25 02:05:23,457 - ERROR - Error processing batch 2989000: 
+2026-03-25 02:05:39,404 - ERROR - Error processing batch 2994000: 
+2026-03-25 02:05:43,582 - ERROR - Error processing batch 2975500: 
+2026-03-25 02:05:47,419 - ERROR - Error processing batch 2977500: 
+2026-03-25 02:05:49,493 - ERROR - Error processing batch 2996000: 
+2026-03-25 02:05:51,981 - ERROR - Error processing batch 2976500: 
+2026-03-25 02:06:12,214 - ERROR - Error processing batch 2977000: 
+2026-03-25 02:06:12,896 - ERROR - Error processing batch 2997000: 
+2026-03-25 02:06:15,329 - ERROR - Error processing batch 2980500: 
+2026-03-25 02:06:18,967 - ERROR - Error processing batch 2999500: 
+2026-03-25 02:06:24,177 - ERROR - Error processing batch 2998500: 
+2026-03-25 02:06:25,512 - ERROR - Error processing batch 2979000: 
+2026-03-25 02:06:25,841 - ERROR - Error processing batch 2999000: 
+2026-03-25 02:07:03,587 - ERROR - Error processing batch 2971500: 
+2026-03-25 02:07:03,741 - ERROR - Error processing batch 2995500: 
+2026-03-25 02:07:04,745 - ERROR - Error processing batch 2997500: 
+2026-03-25 02:07:05,780 - ERROR - Error processing batch 3002000: 
+2026-03-25 02:07:06,424 - ERROR - Error processing batch 2980000: 
+2026-03-25 02:07:14,515 - ERROR - Error processing batch 2981500: 
+2026-03-25 02:07:14,516 - ERROR - Error processing batch 2981000: 
+2026-03-25 02:07:15,678 - ERROR - Error processing batch 2982000: 
+2026-03-25 02:07:26,724 - ERROR - Error processing batch 2998000: 
+2026-03-25 02:07:28,747 - ERROR - Error processing batch 3001500: 
+2026-03-25 02:07:54,134 - ERROR - Error processing batch 2982500: 
+2026-03-25 02:08:08,308 - ERROR - Error processing batch 3001000: 
+2026-03-25 02:08:10,343 - ERROR - Error processing batch 3000000: 
+2026-03-25 02:08:12,551 - ERROR - Error processing batch 2978000: 
+2026-03-25 02:08:20,459 - ERROR - Error processing batch 3004000: 
+2026-03-25 02:09:13,927 - ERROR - Error processing batch 3003500: 
+2026-03-25 02:09:14,095 - ERROR - Error processing batch 2985000: 
+2026-03-25 02:09:16,123 - ERROR - Error processing batch 2984500: 
+2026-03-25 02:09:41,197 - ERROR - Error processing batch 3000500: 
+2026-03-25 02:09:49,398 - ERROR - Error processing batch 2986500: 
+2026-03-25 02:09:50,669 - ERROR - Error processing batch 3002500: 
+2026-03-25 02:09:51,708 - ERROR - Error processing batch 3004500: 
+2026-03-25 02:09:53,248 - ERROR - Error processing batch 2984000: 
+2026-03-25 02:09:53,435 - ERROR - Error processing batch 3008500: 
+2026-03-25 02:12:58,049 - ERROR - Error processing batch 3024500: initial_value must be str or None, not bytes
+2026-03-25 02:15:32,751 - ERROR - Error processing batch 3088000: 
+2026-03-25 02:15:35,053 - ERROR - Error processing batch 3071000: 
+2026-03-25 02:15:37,714 - ERROR - Error processing batch 3091000: 
+2026-03-25 02:15:38,801 - ERROR - Error processing batch 3092000: 
+2026-03-25 02:15:42,228 - ERROR - Error processing batch 3090500: 
+2026-03-25 02:15:45,241 - ERROR - Error processing batch 3094500: 
+2026-03-25 02:15:46,779 - ERROR - Error processing batch 3091500: 
+2026-03-25 02:15:48,383 - ERROR - Error processing batch 3073500: 
+2026-03-25 02:15:48,478 - ERROR - Error processing batch 3093000: 
+2026-03-25 02:15:51,623 - ERROR - Error processing batch 3074000: 
+2026-03-25 02:15:52,089 - ERROR - Error processing batch 3096500: 
+2026-03-25 02:15:53,587 - ERROR - Error processing batch 3073000: 
+2026-03-25 02:15:54,426 - ERROR - Error processing batch 3092500: 
+2026-03-25 02:15:55,109 - ERROR - Error processing batch 3076500: 
+2026-03-25 02:15:55,444 - ERROR - Error processing batch 3095000: 
+2026-03-25 02:15:56,125 - ERROR - Error processing batch 3077500: 
+2026-03-25 02:15:56,462 - ERROR - Error processing batch 3094000: 
+2026-03-25 02:15:57,148 - ERROR - Error processing batch 3075500: 
+2026-03-25 02:15:58,908 - ERROR - Error processing batch 3076000: 
+2026-03-25 02:16:01,601 - ERROR - Error processing batch 3075000: 
+2026-03-25 02:16:02,237 - ERROR - Error processing batch 3098000: 
+2026-03-25 02:16:11,731 - ERROR - Error processing batch 3077000: 
+2026-03-25 02:16:42,073 - ERROR - Error processing batch 3078500: 
+2026-03-25 02:16:43,100 - ERROR - Error processing batch 3078000: 
+2026-03-25 02:16:45,065 - ERROR - Error processing batch 3097500: 
+2026-03-25 02:16:45,432 - ERROR - Error processing batch 3079500: 
+2026-03-25 02:16:47,514 - ERROR - Error processing batch 3100000: 
+2026-03-25 02:16:48,802 - ERROR - Error processing batch 3098500: 
+2026-03-25 02:16:49,819 - ERROR - Error processing batch 3095500: 
+2026-03-25 02:16:51,716 - ERROR - Error processing batch 3096000: 
+2026-03-25 02:16:52,355 - ERROR - Error processing batch 3082500: 
+2026-03-25 02:16:52,355 - ERROR - Error processing batch 3079000: 
+2026-03-25 02:16:52,723 - ERROR - Error processing batch 3099000: 
+2026-03-25 02:17:28,168 - ERROR - Error processing batch 3099500: 
+2026-03-25 02:17:28,806 - ERROR - Error processing batch 3081500: 
+2026-03-25 02:17:32,398 - ERROR - Error processing batch 3101000: 
+2026-03-25 02:17:32,907 - ERROR - Error processing batch 3083500: 
+2026-03-25 02:17:33,416 - ERROR - Error processing batch 3100500: 
+2026-03-25 02:17:46,560 - ERROR - Error processing batch 3080500: 
+2026-03-25 02:18:21,892 - ERROR - Error processing batch 3080000: 
+2026-03-25 02:18:22,833 - ERROR - Error processing batch 3102000: 
+2026-03-25 02:18:22,913 - ERROR - Error processing batch 3081000: 
+2026-03-25 02:18:27,311 - ERROR - Error processing batch 3083000: 
+2026-03-25 02:18:27,582 - ERROR - Error processing batch 3103000: 
+2026-03-25 02:18:28,365 - ERROR - Error processing batch 3082000: 
+2026-03-25 02:18:29,397 - ERROR - Error processing batch 3085000: 
+2026-03-25 02:18:30,348 - ERROR - Error processing batch 3104500: 
+2026-03-25 02:18:31,385 - ERROR - Error processing batch 3103500: 
+2026-03-25 02:18:47,565 - ERROR - Error processing batch 3105000: 
+2026-03-25 02:19:00,703 - ERROR - Error processing batch 3086500: 
+2026-03-25 02:19:24,783 - ERROR - Error processing batch 3104000: 
+2026-03-25 02:19:24,789 - ERROR - Error processing batch 3101500: 
+2026-03-25 02:19:25,815 - ERROR - Error processing batch 3107000: 
+2026-03-25 02:19:33,219 - ERROR - Error processing batch 3106500: 
+2026-03-25 02:19:44,380 - ERROR - Error processing batch 3105500: 
+2026-03-25 02:20:27,832 - ERROR - Error processing batch 3108000: 
+2026-03-25 02:20:44,865 - ERROR - Error processing batch 3087000: 
+2026-03-25 02:20:44,960 - ERROR - Error processing batch 3107500: 
+2026-03-25 02:20:45,878 - ERROR - Error processing batch 3087500: 
+2026-03-25 02:20:51,956 - ERROR - Error processing batch 3084500: 
+2026-03-25 02:20:59,019 - ERROR - Error processing batch 3086000: 
+2026-03-25 02:21:00,027 - ERROR - Error processing batch 3088000: 
+2026-03-25 02:21:00,870 - ERROR - Error processing batch 3110000: 
+2026-03-25 02:21:14,105 - ERROR - Error processing batch 3090000: 
+2026-03-25 02:21:15,139 - ERROR - Error processing batch 3088500: 
+2026-03-25 02:21:16,876 - ERROR - Error processing batch 3091000: 
+2026-03-25 02:22:35,471 - ERROR - Error processing batch 3135000: 
+2026-03-25 02:22:38,300 - ERROR - Error processing batch 3134500: 
+2026-03-25 02:22:38,701 - ERROR - Error processing batch 3109000: 
+2026-03-25 02:22:39,332 - ERROR - Error processing batch 3135500: 
+2026-03-25 02:22:42,262 - ERROR - Error processing batch 3137000: 
+2026-03-25 02:22:43,020 - ERROR - Error processing batch 3140500: initial_value must be str or None, not bytes
+2026-03-25 02:22:44,904 - ERROR - Error processing batch 3112000: 
+2026-03-25 02:22:46,903 - ERROR - Error processing batch 3113000: 
+2026-03-25 02:22:52,429 - ERROR - Error processing batch 3140000: 
+2026-03-25 02:22:52,666 - ERROR - Error processing batch 3112500: 
+2026-03-25 02:22:53,470 - ERROR - Error processing batch 3138000: 
+2026-03-25 02:22:55,195 - ERROR - Error processing batch 3139500: 
+2026-03-25 02:22:56,289 - ERROR - Error processing batch 3114000: 
+2026-03-25 02:22:57,333 - ERROR - Error processing batch 3115500: 
+2026-03-25 02:22:58,577 - ERROR - Error processing batch 3115000: 
+2026-03-25 02:22:59,166 - ERROR - Error processing batch 3141000: 
+2026-03-25 02:23:00,211 - ERROR - Error processing batch 3142000: 
+2026-03-25 02:23:00,818 - ERROR - Error processing batch 3114500: 
+2026-03-25 02:23:05,470 - ERROR - Error processing batch 3142500: 
+2026-03-25 02:23:29,269 - ERROR - Error processing batch 3144000: 
+2026-03-25 02:23:40,448 - ERROR - Error processing batch 3145000: 
+2026-03-25 02:23:44,037 - ERROR - Error processing batch 3117000: 
+2026-03-25 02:23:46,414 - ERROR - Error processing batch 3144500: 
+2026-03-25 02:23:53,202 - ERROR - Error processing batch 3119500: 
+2026-03-25 02:23:54,277 - ERROR - Error processing batch 3119000: 
+2026-03-25 02:23:55,307 - ERROR - Error processing batch 3145500: 
+2026-03-25 02:23:55,882 - ERROR - Error processing batch 3116000: 
+2026-03-25 02:23:56,816 - ERROR - Error processing batch 3148500: 
+2026-03-25 02:23:58,450 - ERROR - Error processing batch 3123500: 
+2026-03-25 02:24:02,790 - ERROR - Error processing batch 3150500: 
+2026-03-25 02:24:02,913 - ERROR - Error processing batch 3121500: 
+2026-03-25 02:24:39,762 - ERROR - Error processing batch 3126500: 
+2026-03-25 02:24:40,990 - ERROR - Error processing batch 3151000: 
+2026-03-25 02:25:01,096 - ERROR - Error processing batch 3125000: 
+2026-03-25 02:25:01,344 - ERROR - Error processing batch 3150000: 
+2026-03-25 02:25:02,234 - ERROR - Error processing batch 3124000: 
+2026-03-25 02:25:02,472 - ERROR - Error processing batch 3149500: 
+2026-03-25 02:25:10,041 - ERROR - Error processing batch 3152000: 
+2026-03-25 02:25:15,660 - ERROR - Error processing batch 3153500: 
+2026-03-25 02:25:19,391 - ERROR - Error processing batch 3155000: 
+2026-03-25 02:25:19,721 - ERROR - Error processing batch 3129500: 
+2026-03-25 02:25:22,211 - ERROR - Error processing batch 3130500: 
+2026-03-25 02:25:24,013 - ERROR - Error processing batch 3155500: 
+2026-03-25 02:25:25,029 - ERROR - Error processing batch 3157000: 
+2026-03-25 02:25:26,082 - ERROR - Error processing batch 3156500: 
+2026-03-25 02:25:27,120 - ERROR - Error processing batch 3156000: 
+2026-03-25 02:25:29,824 - ERROR - Error processing batch 3149000: 
+2026-03-25 02:25:32,628 - ERROR - Error processing batch 3158500: 
+2026-03-25 02:25:34,124 - ERROR - Error processing batch 3158000: 
+2026-03-25 02:25:38,444 - ERROR - Error processing batch 3159000: 
+2026-03-25 02:25:39,473 - ERROR - Error processing batch 3160500: 
+2026-03-25 02:25:40,504 - ERROR - Error processing batch 3161000: 
+2026-03-25 02:25:58,028 - ERROR - Error processing batch 3160000: 
+2026-03-25 02:26:08,758 - ERROR - Error processing batch 3133500: 
+2026-03-25 02:26:12,549 - ERROR - Error processing batch 3161500: 
+2026-03-25 02:26:35,069 - ERROR - Error processing batch 3132000: 
+2026-03-25 02:26:37,074 - ERROR - Error processing batch 3162500: 
+2026-03-25 02:26:37,309 - ERROR - Error processing batch 3134000: 
+2026-03-25 02:26:38,976 - ERROR - Error processing batch 3163000: 
+2026-03-25 02:26:41,155 - ERROR - Error processing batch 3132500: 
+2026-03-25 02:26:42,177 - ERROR - Error processing batch 3159500: 
+2026-03-25 02:26:43,244 - ERROR - Error processing batch 3163500: 
+2026-03-25 02:26:44,927 - ERROR - Error processing batch 3134500: 
+2026-03-25 02:26:46,606 - ERROR - Error processing batch 3165000: 
+2026-03-25 02:26:48,062 - ERROR - Error processing batch 3135000: 
+2026-03-25 02:26:49,094 - ERROR - Error processing batch 3133000: 
+2026-03-25 02:26:50,181 - ERROR - Error processing batch 3164500: 
+2026-03-25 02:26:51,229 - ERROR - Error processing batch 3167000: 
+2026-03-25 02:26:55,315 - ERROR - Error processing batch 3165500: 
+2026-03-25 02:27:03,469 - ERROR - Error processing batch 3136000: 
+2026-03-25 02:27:04,490 - ERROR - Error processing batch 3136500: 
+2026-03-25 02:27:06,004 - ERROR - Error processing batch 3169000: 
+2026-03-25 02:27:07,241 - ERROR - Error processing batch 3169500: 
+2026-03-25 02:27:30,781 - ERROR - Error processing batch 3166500: 
+2026-03-25 02:27:39,764 - ERROR - Error processing batch 3168500: 
+2026-03-25 02:27:42,343 - ERROR - Error processing batch 3138000: 
+2026-03-25 02:27:46,136 - ERROR - Error processing batch 3137000: 
+2026-03-25 02:27:47,895 - ERROR - Error processing batch 3171500: 
+2026-03-25 02:27:53,415 - ERROR - Error processing batch 3137500: 
+2026-03-25 02:27:54,667 - ERROR - Error processing batch 3170500: 
+2026-03-25 02:28:55,502 - ERROR - Error processing batch 3155000: 
+2026-03-25 02:28:56,111 - ERROR - Error processing batch 3187000: 
+2026-03-25 02:28:56,516 - ERROR - Error processing batch 3153500: 
+2026-03-25 02:29:00,577 - ERROR - Error processing batch 3186000: 
+2026-03-25 02:29:06,389 - ERROR - Error processing batch 3156000: 
+2026-03-25 02:29:08,999 - ERROR - Error processing batch 3190000: 
+2026-03-25 02:29:09,106 - ERROR - Error processing batch 3159500: 
+2026-03-25 02:29:10,036 - ERROR - Error processing batch 3189000: 
+2026-03-25 02:29:11,067 - ERROR - Error processing batch 3192000: 
+2026-03-25 02:29:11,098 - ERROR - Error processing batch 3159000: 
+2026-03-25 02:29:12,089 - ERROR - Error processing batch 3190500: 
+2026-03-25 02:29:13,704 - ERROR - Error processing batch 3160000: 
+2026-03-25 02:29:14,982 - ERROR - Error processing batch 3189500: 
+2026-03-25 02:29:17,409 - ERROR - Error processing batch 3160500: 
+2026-03-25 02:29:19,894 - ERROR - Error processing batch 3161000: 
+2026-03-25 02:29:28,048 - ERROR - Error processing batch 3162500: 
+2026-03-25 02:29:58,864 - ERROR - Error processing batch 3161500: 
+2026-03-25 02:30:02,977 - ERROR - Error processing batch 3164000: 
+2026-03-25 02:30:02,980 - ERROR - Error processing batch 3164500: <urlopen error [Errno 11001] getaddrinfo failed>
+2026-03-25 02:30:05,387 - ERROR - Error processing batch 3163500: 
+2026-03-25 02:30:06,404 - ERROR - Error processing batch 3162000: 
+2026-03-25 02:30:51,579 - ERROR - Error processing batch 3165500: <urlopen error [Errno 11001] getaddrinfo failed>
+2026-03-25 02:30:52,732 - ERROR - Error processing batch 3191500: 
+2026-03-25 02:31:08,070 - ERROR - Error processing batch 3165000: 
+2026-03-25 02:31:09,353 - ERROR - Error processing batch 3194500: 
+2026-03-25 02:31:15,670 - ERROR - Error processing batch 3168000: 
+2026-03-25 02:31:16,952 - ERROR - Error processing batch 3166000: 
+2026-03-25 02:31:16,954 - ERROR - Error processing batch 3194000: 
+2026-03-25 02:31:17,998 - ERROR - Error processing batch 3197000: 
+2026-03-25 02:31:18,213 - ERROR - Error processing batch 3169000: 
+2026-03-25 02:31:19,257 - ERROR - Error processing batch 3170000: 
+2026-03-25 02:31:19,791 - ERROR - Error processing batch 3198500: 
+2026-03-25 02:31:21,815 - ERROR - Error processing batch 3198000: 
+2026-03-25 02:31:24,595 - ERROR - Error processing batch 3170500: 
+2026-03-25 02:31:25,624 - ERROR - Error processing batch 3172000: 
+2026-03-25 02:31:26,114 - ERROR - Error processing batch 3199000: 
+2026-03-25 02:31:27,176 - ERROR - Error processing batch 3201500: 
+2026-03-25 02:31:28,204 - ERROR - Error processing batch 3199500: 
+2026-03-25 02:31:29,100 - ERROR - Error processing batch 3171000: 
+2026-03-25 02:31:29,676 - ERROR - Error processing batch 3201000: 
+2026-03-25 02:31:30,351 - ERROR - Error processing batch 3173500: 
+2026-03-25 02:31:31,388 - ERROR - Error processing batch 3171500: 
+2026-03-25 02:31:31,868 - ERROR - Error processing batch 3200000: 
+2026-03-25 02:31:32,882 - ERROR - Error processing batch 3200500: 
+2026-03-25 02:31:33,579 - ERROR - Error processing batch 3172500: 
+2026-03-25 02:31:37,314 - ERROR - Error processing batch 3173000: 
+2026-03-25 02:31:37,487 - ERROR - Error processing batch 3203500: 
+2026-03-25 02:31:49,488 - ERROR - Error processing batch 3176000: 
+2026-03-25 02:31:54,746 - ERROR - Error processing batch 3203000: 
+2026-03-25 02:32:14,701 - ERROR - Error processing batch 3175000: 
+2026-03-25 02:32:18,912 - ERROR - Error processing batch 3202500: 
+2026-03-25 02:32:31,059 - ERROR - Error processing batch 3204500: 
+2026-03-25 02:32:32,065 - ERROR - Error processing batch 3204000: 
+2026-03-25 02:32:34,862 - ERROR - Error processing batch 3174500: 
+2026-03-25 02:32:37,138 - ERROR - Error processing batch 3202000: 
+2026-03-25 02:32:55,508 - ERROR - Error processing batch 3205000: 
+2026-03-25 02:33:00,899 - ERROR - Error processing batch 3174000: 
+2026-03-25 02:33:18,307 - ERROR - Error processing batch 3175500: 
+2026-03-25 02:33:41,931 - ERROR - Error processing batch 3176500: 
+2026-03-25 02:33:52,038 - ERROR - Error processing batch 3177000: 
+2026-03-25 02:33:53,112 - ERROR - Error processing batch 3205500: 
+2026-03-25 02:34:46,305 - ERROR - Error processing batch 3208000: 
+2026-03-25 02:34:46,923 - ERROR - Error processing batch 3179500: 
+2026-03-25 02:34:47,328 - ERROR - Error processing batch 3206000: 
+2026-03-25 02:34:50,736 - ERROR - Error processing batch 3179000: 
+2026-03-25 02:35:01,317 - ERROR - Error processing batch 3178000: 
+2026-03-25 02:35:02,433 - ERROR - Error processing batch 3181500: 
+2026-03-25 02:35:03,475 - ERROR - Error processing batch 3183000: 
+2026-03-25 02:35:04,875 - ERROR - Error processing batch 3208500: 
+2026-03-25 02:35:07,097 - ERROR - Error processing batch 3211000: 
+2026-03-25 02:35:07,629 - ERROR - Error processing batch 3184000: 
+2026-03-25 02:35:11,652 - ERROR - Error processing batch 3210000: 
+2026-03-25 02:35:13,081 - ERROR - Error processing batch 3184500: 
+2026-03-25 02:35:15,946 - ERROR - Error processing batch 3211500: 
+2026-03-25 02:35:27,793 - ERROR - Error processing batch 3186500: 
+2026-03-25 02:35:29,125 - ERROR - Error processing batch 3212500: 
+2026-03-25 02:35:38,040 - ERROR - Error processing batch 3183500: 
+2026-03-25 02:35:38,341 - ERROR - Error processing batch 3213000: 
+2026-03-25 02:35:39,073 - ERROR - Error processing batch 3185000: 
+2026-03-25 02:35:45,648 - ERROR - Error processing batch 3187000: 
+2026-03-25 02:35:49,713 - ERROR - Error processing batch 3185500: 
+2026-03-25 02:36:20,343 - ERROR - Error processing batch 3187500: 
+2026-03-25 02:36:20,750 - ERROR - Error processing batch 3214000: 
+2026-03-25 02:36:22,782 - ERROR - Error processing batch 3215000: 
+2026-03-25 02:36:25,149 - ERROR - Error processing batch 3186000: 
+2026-03-25 02:36:26,180 - ERROR - Error processing batch 3188500: 
+2026-03-25 02:36:27,193 - ERROR - Error processing batch 3188000: 
+2026-03-25 02:36:28,981 - ERROR - Error processing batch 3214500: 
+2026-03-25 02:36:34,162 - ERROR - Error processing batch 3215500: 
+2026-03-25 02:36:42,118 - ERROR - Error processing batch 3216000: 
+2026-03-25 02:36:48,635 - ERROR - Error processing batch 3190500: 
+2026-03-25 02:36:51,560 - ERROR - Error processing batch 3213500: 
+2026-03-25 02:36:57,740 - ERROR - Error processing batch 3191000: 
+2026-03-25 02:36:59,771 - ERROR - Error processing batch 3192500: 
+2026-03-25 02:37:09,437 - ERROR - Error processing batch 3193500: 
+2026-03-25 02:37:10,695 - ERROR - Error processing batch 3195500: 
+2026-03-25 02:37:11,755 - ERROR - Error processing batch 3217000: 
+2026-03-25 02:37:11,756 - ERROR - Error processing batch 3194500: 
+2026-03-25 02:37:12,791 - ERROR - Error processing batch 3195000: 
+2026-03-25 02:37:16,166 - ERROR - Error processing batch 3194000: 
+2026-03-25 02:37:18,131 - ERROR - Error processing batch 3196000: 
+2026-03-25 02:37:22,814 - ERROR - Error processing batch 3198000: 
+2026-03-25 02:37:23,830 - ERROR - Error processing batch 3197000: 
+2026-03-25 02:37:26,240 - ERROR - Error processing batch 3198500: 
+2026-03-25 02:37:27,263 - ERROR - Error processing batch 3197500: 
+2026-03-25 02:37:27,512 - ERROR - Error processing batch 3217500: 
+2026-03-25 02:37:31,759 - ERROR - Error processing batch 3199000: 
+2026-03-25 02:37:35,171 - ERROR - Error processing batch 3196500: 
+2026-03-25 02:37:35,173 - ERROR - Error processing batch 3200000: 
+2026-03-25 02:37:36,197 - ERROR - Error processing batch 3199500: 
+2026-03-25 02:37:40,160 - ERROR - Error processing batch 3200500: 
+2026-03-25 02:37:41,174 - ERROR - Error processing batch 3201000: 
+2026-03-25 02:37:46,024 - ERROR - Error processing batch 3219000: 
+2026-03-25 02:37:59,208 - ERROR - Error processing batch 3220000: 
+2026-03-25 02:38:00,866 - ERROR - Error processing batch 3203000: 
+2026-03-25 02:38:04,179 - ERROR - Error processing batch 3222000: 
+2026-03-25 02:38:05,195 - ERROR - Error processing batch 3221500: 
+2026-03-25 02:38:05,940 - ERROR - Error processing batch 3202000: 
+2026-03-25 02:38:14,047 - ERROR - Error processing batch 3204000: 
+2026-03-25 02:38:14,048 - ERROR - Error processing batch 3202500: 
+2026-03-25 02:38:22,174 - ERROR - Error processing batch 3203500: 
+2026-03-25 02:38:29,062 - ERROR - Error processing batch 3204500: 
+2026-03-25 02:38:30,166 - ERROR - Error processing batch 3224500: 
+2026-03-25 02:38:41,600 - ERROR - Error processing batch 3226000: 
+2026-03-25 02:38:41,674 - ERROR - Error processing batch 3209000: 
+2026-03-25 02:38:42,721 - ERROR - Error processing batch 3207000: 
+2026-03-25 02:38:43,582 - ERROR - Error processing batch 3229000: 
+2026-03-25 02:38:43,757 - ERROR - Error processing batch 3208500: 
+2026-03-25 02:38:44,619 - ERROR - Error processing batch 3228000: 
+2026-03-25 02:38:44,776 - ERROR - Error processing batch 3209500: 
+2026-03-25 02:38:45,635 - ERROR - Error processing batch 3227500: 
+2026-03-25 02:38:45,807 - ERROR - Error processing batch 3206000: 
+2026-03-25 02:38:48,015 - ERROR - Error processing batch 3210000: 
+2026-03-25 02:38:51,660 - ERROR - Error processing batch 3210500: 
+2026-03-25 02:38:52,234 - ERROR - Error processing batch 3230500: 
+2026-03-25 02:39:02,414 - ERROR - Error processing batch 3231000: 
+2026-03-25 02:39:07,488 - ERROR - Error processing batch 3231500: 
+2026-03-25 02:39:58,218 - ERROR - Error processing batch 3212500: 
+2026-03-25 02:40:06,327 - ERROR - Error processing batch 3213500: 
+2026-03-25 02:40:15,436 - ERROR - Error processing batch 3211500: 
+2026-03-25 02:40:16,457 - ERROR - Error processing batch 3213000: 
+2026-03-25 02:40:58,852 - ERROR - Error processing batch 3211000: 
+2026-03-25 02:41:04,936 - ERROR - Error processing batch 3214500: 
+2026-03-25 02:41:32,142 - ERROR - Error processing batch 3214000: 
+2026-03-25 02:41:33,179 - ERROR - Error processing batch 3212000: 
+2026-03-25 02:41:37,600 - ERROR - Error processing batch 3215000: 
+2026-03-25 02:41:44,183 - ERROR - Error processing batch 3230000: 
+2026-03-25 02:41:48,875 - ERROR - Error processing batch 3227000: 
+2026-03-25 02:41:49,905 - ERROR - Error processing batch 3232500: 
+2026-03-25 02:42:01,667 - ERROR - Error processing batch 3233000: 
+2026-03-25 02:42:55,600 - ERROR - Error processing batch 3216500: 
+2026-03-25 02:43:13,722 - ERROR - Error processing batch 3217000: 
+2026-03-25 02:43:27,020 - ERROR - Error processing batch 3216000: 
+2026-03-25 02:43:30,608 - ERROR - Error processing batch 3234500: 
+2026-03-25 02:43:31,620 - ERROR - Error processing batch 3235500: 
+2026-03-25 02:44:11,269 - ERROR - Error processing batch 3235000: 
+2026-03-25 02:44:11,799 - ERROR - Error processing batch 3217500: 
+2026-03-25 02:44:13,672 - ERROR - Error processing batch 3236500: 
+2026-03-25 02:44:14,390 - ERROR - Error processing batch 3215500: 
+2026-03-25 02:44:16,086 - ERROR - Error processing batch 3237000: 
+2026-03-25 02:44:16,909 - ERROR - Error processing batch 3219500: 
+2026-03-25 02:44:20,227 - ERROR - Error processing batch 3218500: 
+2026-03-25 02:44:21,446 - ERROR - Error processing batch 3237500: 
+2026-03-25 02:45:28,402 - ERROR - Error processing batch 3238500: 
+2026-03-25 02:45:32,790 - ERROR - Error processing batch 3239000: 
+2026-03-25 02:45:33,525 - ERROR - Error processing batch 3221000: 
+2026-03-25 02:45:37,467 - ERROR - Error processing batch 3240000: 
+2026-03-25 02:45:37,625 - ERROR - Error processing batch 3221500: 
+2026-03-25 02:45:38,655 - ERROR - Error processing batch 3220500: 
+2026-03-25 02:45:41,329 - ERROR - Error processing batch 3239500: 
+2026-03-25 02:46:48,434 - ERROR - Error processing batch 3222000: 
+2026-03-25 02:46:50,075 - ERROR - Error processing batch 3240500: 
+2026-03-25 02:46:50,123 - ERROR - Error processing batch 3219000: 
+2026-03-25 02:46:54,377 - ERROR - Error processing batch 3241500: 
+2026-03-25 02:46:56,028 - ERROR - Error processing batch 3223500: 
+2026-03-25 02:46:58,782 - ERROR - Error processing batch 3242000: 
+2026-03-25 02:47:53,812 - ERROR - Error processing batch 3241000: 
+2026-03-25 02:47:59,898 - ERROR - Error processing batch 3243000: 
+2026-03-25 02:48:10,115 - ERROR - Error processing batch 3223000: 
+2026-03-25 02:48:12,038 - ERROR - Error processing batch 3236000: 
+2026-03-25 02:48:15,572 - ERROR - Error processing batch 3220000: 
+2026-03-25 02:48:21,059 - ERROR - Error processing batch 3224000: 
+2026-03-25 02:48:22,072 - ERROR - Error processing batch 3244500: 
+2026-03-25 02:48:22,089 - ERROR - Error processing batch 3222500: 
+2026-03-25 02:48:23,321 - ERROR - Error processing batch 3243500: 
+2026-03-25 02:48:26,966 - ERROR - Error processing batch 3242500: 
+2026-03-25 02:48:49,348 - ERROR - Error processing batch 3244000: 
+2026-03-25 02:48:50,579 - ERROR - Error processing batch 3227500: 
+2026-03-25 02:48:52,375 - ERROR - Error processing batch 3226000: 
+2026-03-25 02:48:53,051 - ERROR - Error processing batch 3246500: 
+2026-03-25 02:48:53,481 - ERROR - Error processing batch 3228500: 
+2026-03-25 02:48:55,659 - ERROR - Error processing batch 3228000: 
+2026-03-25 02:48:56,803 - ERROR - Error processing batch 3247000: 
+2026-03-25 02:48:59,535 - ERROR - Error processing batch 3230500: 
+2026-03-25 02:49:00,552 - ERROR - Error processing batch 3229000: 
+2026-03-25 02:49:14,289 - ERROR - Error processing batch 3231500: 
+2026-03-25 03:01:19,657 - ERROR - Error processing batch 3427000: initial_value must be str or None, not bytes
+2026-03-25 03:02:08,122 - ERROR - Error processing batch 3441000: initial_value must be str or None, not bytes
+2026-03-25 03:08:58,821 - ERROR - Error processing batch 3564500: initial_value must be str or None, not bytes
+2026-03-25 03:11:30,122 - ERROR - Error processing batch 3620000: initial_value must be str or None, not bytes
+2026-03-25 03:13:26,881 - ERROR - Error processing batch 3662500: initial_value must be str or None, not bytes
+2026-03-25 03:14:21,206 - ERROR - Error processing batch 3680000: initial_value must be str or None, not bytes
+2026-03-25 03:21:39,491 - ERROR - Error processing batch 3837000: initial_value must be str or None, not bytes
+2026-03-25 03:22:37,659 - ERROR - Error processing batch 3859500: initial_value must be str or None, not bytes
+2026-03-25 03:23:29,578 - ERROR - Error processing batch 3878500: initial_value must be str or None, not bytes
+2026-03-25 03:24:36,402 - ERROR - Error processing batch 3901500: initial_value must be str or None, not bytes
+2026-03-25 03:29:14,738 - ERROR - Error processing batch 3991500: initial_value must be str or None, not bytes
+2026-03-25 03:32:34,607 - ERROR - Error processing batch 4055000: initial_value must be str or None, not bytes
+2026-03-25 03:33:05,288 - ERROR - Error processing batch 4064500: initial_value must be str or None, not bytes
+2026-03-25 03:37:27,436 - ERROR - Error processing batch 4140000: initial_value must be str or None, not bytes
