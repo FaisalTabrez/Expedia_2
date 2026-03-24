@@ -1,0 +1,12 @@
+biopython
+polars
+lancedb
+umap-learn
+hdbscan
+json-rpc
+numpy
+scikit-learn
+pyarrow
+torch
+transformers
+einops
