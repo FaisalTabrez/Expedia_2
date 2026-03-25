@@ -105,7 +105,13 @@ class Harvester:
             rettype="fasta",
             retmode="text"
         )
-        return handle.read()
+        raw_data = handle.read()
+        handle.close()
+        
+        # Decoding Layer for type safety
+        if isinstance(raw_data, bytes):
+            return raw_data.decode('utf-8', errors='replace')
+        return raw_data
 
     def process_batch(self, start_index):
         """Worker function to process a batch of records."""
@@ -117,6 +123,7 @@ class Harvester:
                 return batch_records
 
             # Parse FASTA
+            # Use safe StringIO with decoded string
             for record in SeqIO.parse(StringIO(raw_fasta), "fasta"):
                 # 1. Undefined / None check
                 if record.seq is None:
@@ -135,21 +142,16 @@ class Harvester:
 
                 # Header Parsing Logic
                 # Expected format: >Accession [Organism] [TaxID]
-                # Default SeqIO puts everything after Accession into record.description
-                
                 description = record.description
                 
                 # Extract Organism
-                # Look for [Organism Name]
                 organism_match = re.search(r'\[([^\]]+)\]', description)
                 organism = organism_match.group(1) if organism_match else "Unknown"
                 
-                # Extract TaxID if present in header (often as taxon:123 or [TaxID=123])
-                # We try both common NCBI formats if not explicitly bracketed as [TaxID]
+                # Extract TaxID if present
                 taxid_match = re.search(r'taxon:(\d+)|TaxID=(\d+)|\[TaxID=(\d+)\]', description)
                 taxid = "Unknown"
                 if taxid_match:
-                    # extensive check which group matched
                     items = [g for g in taxid_match.groups() if g]
                     if items:
                         taxid = items[0]
@@ -162,12 +164,39 @@ class Harvester:
                 })
 
         except Exception as e:
-            logger.error(f"Error processing batch {start_index}: {e}")
-            # Tenacity handles retries, so if we are here, it's a critical failure or parse error.
-            # We log and skip to keep the pipeline moving.
+            logger.error(f"Batch {start_index} failed primary fetch: {e}")
+            self._handle_failed_batch(start_index)
             pass
 
         return batch_records
+
+    def _handle_failed_batch(self, start_index):
+        """Fallback and logging for failed batches."""
+        try:
+            # Fallback: Try fetching as XML to see if server responds
+            logger.info(f"Attempting fallback XML fetch for batch {start_index}...")
+            handle = Entrez.efetch(
+                db="nuccore",
+                query_key=self.query_key,
+                WebEnv=self.webenv,
+                retstart=start_index,
+                retmax=BATCH_SIZE,
+                rettype="fasta",
+                retmode="xml"
+            )
+            # Just read to confirm connectivity/existence
+            _ = handle.read()
+            handle.close()
+            logger.info(f"Batch {start_index} XML fallback successful (logged for manual fix).")
+        except Exception as e:
+             logger.error(f"Batch {start_index} fallback failed completely: {e}")
+        
+        # Log to file
+        try:
+            with open("failed_batches.log", "a") as f:
+                f.write(f"{start_index}\n")
+        except Exception as e:
+            logger.error(f"Failed to write to failed_batches.log: {e}")
 
     def save_chunk(self, data, index_marker):
         """Save buffer as a single parquet file."""

@@ -666,3 +666,41 @@
 2026-03-25 03:32:34,607 - ERROR - Error processing batch 4055000: initial_value must be str or None, not bytes
 2026-03-25 03:33:05,288 - ERROR - Error processing batch 4064500: initial_value must be str or None, not bytes
 2026-03-25 03:37:27,436 - ERROR - Error processing batch 4140000: initial_value must be str or None, not bytes
+2026-03-25 19:48:37,735 - WARNING - Could not access E:\EXPEDIA_Data\chunks. Switching to fallback: data\chunks
+2026-03-25 19:48:37,737 - INFO - Executing search: (Aquatic[All Fields] OR Marine[All Fields] OR Freshwater[All Fields]) AND "is_nuccore"[Filter] AND 100:1000000[SLEN] NOT "master"[All Fields]
+2026-03-25 19:48:41,895 - INFO - Search complete. Found 38781625 records. WebEnv: MCID_69c3eebfd4235b008f00978c
+2026-03-25 19:48:41,897 - INFO - Resuming from index 515500...
+2026-03-25 20:16:51,445 - WARNING - Could not access E:\EXPEDIA_Data\chunks. Switching to fallback: data\chunks
+2026-03-25 20:16:51,445 - INFO - Executing search: (Aquatic[All Fields] OR Marine[All Fields] OR Freshwater[All Fields]) AND "is_nuccore"[Filter] AND 100:1000000[SLEN] NOT "master"[All Fields]
+2026-03-25 20:17:15,001 - ERROR - Search failed: Search Backend failed: 		
+
+2026-03-25 20:22:44,417 - WARNING - Could not access E:\EXPEDIA_Data\chunks. Switching to fallback: data\chunks
+2026-03-25 20:22:44,418 - INFO - Executing search: (Aquatic[All Fields] OR Marine[All Fields] OR Freshwater[All Fields]) AND "is_nuccore"[Filter] AND 100:1000000[SLEN] NOT "master"[All Fields]
+2026-03-25 20:22:47,183 - INFO - Search complete. Found 38781625 records. WebEnv: MCID_69c3f6be2f3dae1f680825f2
+2026-03-25 20:22:47,191 - INFO - Resuming from index 515500...
+2026-03-25 20:42:33,364 - ERROR - Error processing batch 518500: RetryError[<Future at 0x1f8b215d6d0 state=finished raised IncompleteRead>]
+2026-03-25 20:52:13,115 - ERROR - Error processing batch 533500: RetryError[<Future at 0x1f8b20b2d50 state=finished raised IncompleteRead>]
+2026-03-25 21:00:37,968 - ERROR - Error processing batch 532000: RetryError[<Future at 0x1f8b747f3d0 state=finished raised IncompleteRead>]
+2026-03-25 21:25:00,870 - ERROR - Error processing batch 532500: RetryError[<Future at 0x1f8c9a027d0 state=finished raised IncompleteRead>]
+2026-03-25 22:49:58,589 - ERROR - Error processing batch 590500: RetryError[<Future at 0x1f882b5df50 state=finished raised IncompleteRead>]
+2026-03-25 23:36:40,895 - WARNING - Could not access E:\EXPEDIA_Data\chunks. Switching to fallback: data\chunks
+2026-03-25 23:36:40,895 - INFO - Executing search: (Aquatic[All Fields] OR Marine[All Fields] OR Freshwater[All Fields]) AND "is_nuccore"[Filter] AND 100:1000000[SLEN] NOT "master"[All Fields]
+2026-03-25 23:36:43,128 - INFO - Search complete. Found 38781625 records. WebEnv: MCID_69c4243218bb7aaa1d0c11c9
+2026-03-25 23:36:43,130 - INFO - Resuming from index 580500...
+2026-03-26 00:03:14,370 - ERROR - Error processing batch 717000: initial_value must be str or None, not bytes
+2026-03-26 00:03:21,542 - ERROR - Error processing batch 720000: initial_value must be str or None, not bytes
+2026-03-26 00:17:08,805 - ERROR - Error processing batch 861000: initial_value must be str or None, not bytes
+2026-03-26 00:28:16,690 - ERROR - Error processing batch 1071000: initial_value must be str or None, not bytes
+2026-03-26 00:30:31,443 - ERROR - Error processing batch 1104000: initial_value must be str or None, not bytes
+2026-03-26 00:35:07,712 - ERROR - Error processing batch 1167500: initial_value must be str or None, not bytes
+2026-03-26 00:35:44,841 - ERROR - Error processing batch 1182000: initial_value must be str or None, not bytes
+2026-03-26 00:37:09,824 - ERROR - Error processing batch 1213000: initial_value must be str or None, not bytes
+2026-03-26 00:37:24,615 - ERROR - Error processing batch 1224000: initial_value must be str or None, not bytes
+2026-03-26 01:23:34,132 - WARNING - Could not access E:\EXPEDIA_Data\chunks. Switching to fallback: data\chunks
+2026-03-26 01:23:34,133 - INFO - Executing search: (Aquatic[All Fields] OR Marine[All Fields] OR Freshwater[All Fields]) AND "is_nuccore"[Filter] AND 100:1000000[SLEN] NOT "master"[All Fields]
+2026-03-26 01:23:36,743 - INFO - Search complete. Found 38781625 records. WebEnv: MCID_69c43d405c458975f609074c
+2026-03-26 01:23:36,746 - INFO - Resuming from index 1223000...
+2026-03-26 02:01:03,006 - WARNING - Could not access E:\EXPEDIA_Data\chunks. Switching to fallback: data\chunks
+2026-03-26 02:01:03,007 - INFO - Executing search: (Aquatic[All Fields] OR Marine[All Fields] OR Freshwater[All Fields]) AND "is_nuccore"[Filter] AND 100:1000000[SLEN] NOT "master"[All Fields]
+2026-03-26 02:01:06,052 - INFO - Search complete. Found 38781625 records. WebEnv: MCID_69c4460936a814d76b05efd9
+2026-03-26 02:01:06,052 - INFO - Resuming from index 2818500...
