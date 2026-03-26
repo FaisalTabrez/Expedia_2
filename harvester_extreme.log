@@ -704,3 +704,14 @@
 2026-03-26 02:01:03,007 - INFO - Executing search: (Aquatic[All Fields] OR Marine[All Fields] OR Freshwater[All Fields]) AND "is_nuccore"[Filter] AND 100:1000000[SLEN] NOT "master"[All Fields]
 2026-03-26 02:01:06,052 - INFO - Search complete. Found 38781625 records. WebEnv: MCID_69c4460936a814d76b05efd9
 2026-03-26 02:01:06,052 - INFO - Resuming from index 2818500...
+2026-03-26 09:05:43,936 - ERROR - Failed to save chunk chunk_16726000.parquet: parquet: File out of specification: underlying IO error: There is not enough space on the disk. (os error 112)
+2026-03-26 09:05:45,274 - ERROR - Failed to save chunk chunk_16736500.parquet: parquet: File out of specification: underlying IO error: There is not enough space on the disk. (os error 112)
+2026-03-26 09:06:46,666 - ERROR - Failed to save chunk chunk_16767500.parquet: parquet: File out of specification: underlying IO error: There is not enough space on the disk. (os error 112)
+2026-03-26 09:10:42,739 - ERROR - Failed to save chunk chunk_16851500.parquet: parquet: File out of specification: underlying IO error: There is not enough space on the disk. (os error 112)
+2026-03-26 09:11:08,324 - ERROR - Failed to save chunk chunk_16861500.parquet: parquet: File out of specification: underlying IO error: There is not enough space on the disk. (os error 112)
+2026-03-26 09:11:30,611 - ERROR - Failed to save chunk chunk_16871500.parquet: parquet: File out of specification: underlying IO error: There is not enough space on the disk. (os error 112)
+2026-03-26 09:20:39,328 - ERROR - Failed to save chunk chunk_17052500.parquet: parquet: File out of specification: Invalid thrift: transport error
+2026-03-26 09:20:46,620 - ERROR - Failed to save chunk chunk_17063500.parquet: parquet: File out of specification: underlying IO error: There is not enough space on the disk. (os error 112)
+2026-03-26 09:21:01,160 - ERROR - Failed to save chunk chunk_17074000.parquet: parquet: File out of specification: underlying IO error: There is not enough space on the disk. (os error 112)
+2026-03-26 09:21:34,383 - ERROR - Failed to save chunk chunk_17084500.parquet: parquet: File out of specification: underlying IO error: There is not enough space on the disk. (os error 112)
+2026-03-26 09:21:58,148 - ERROR - Failed to save chunk chunk_17095000.parquet: parquet: File out of specification: Invalid thrift: transport error
