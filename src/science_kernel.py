@@ -63,7 +63,7 @@ class AvalancheAnalyzer:
     def __init__(self, random_state: int = 42) -> None:
         self.random_state = random_state
 
-    def run(self, vectors: np.ndarray, accessions: List[str]) -> pl.DataFrame:
+    def run(self, vectors: np.ndarray, accessions: List[str], kingdoms: List[str], outlier_scores_raw: List[float] = None) -> pl.DataFrame:
         if vectors.ndim != 2 or vectors.shape[1] != 768:
             raise ValueError("Expected latent vectors with shape (N, 768)") 
         if len(accessions) != vectors.shape[0]:
@@ -108,6 +108,7 @@ class AvalancheAnalyzer:
         manifold_df = pl.DataFrame(
             {
                 "accession": accessions,
+                "kingdom": kingdoms,
                 "x": embedding_3d[:, 0],
                 "y": embedding_3d[:, 1],
                 "z": embedding_3d[:, 2],
@@ -139,10 +140,17 @@ class ScienceKernelService:
             return {"status": "error", "message": "No data found in LanceDB"}
             
         accessions = sample_df['accession'].tolist()
+        
+        # Parse kingdoms from taxonomy_path
+        if 'taxonomy_path' in sample_df.columns:
+            kingdoms = [tax.split(";")[0].strip() if tax and tax != "Unknown" else "Unknown" for tax in sample_df['taxonomy_path'].to_list()]
+        else:
+            kingdoms = ["Unknown"] * len(accessions)
+
         # Convert list of vectors to numpy array
         vectors = np.stack(sample_df['vector'].values).astype(np.float32)
 
-        manifold_df = self.analyzer.run(vectors=vectors, accessions=accessions)
+        manifold_df = self.analyzer.run(vectors=vectors, accessions=accessions, kingdoms=kingdoms)
         manifold_df.write_parquet(MANIFOLD_OUTPUT)
         logger.info("Manifold output written to disk handshake buffer.")
 
@@ -166,9 +174,14 @@ class ScienceKernelService:
             raise ValueError("No vectors received for avalanche pipeline")  
 
         accessions = payload_df["accession"].to_list()
-        vectors = np.stack(payload_df["vector"].to_list()).astype(np.float32)
+        
+        kingdoms = ["Unknown"] * len(accessions)
+        if "taxonomy_path" in payload_df.columns:
+            kingdoms = [tax.split(";")[0].strip() if tax and tax != "Unknown" else "Unknown" for tax in payload_df['taxonomy_path'].to_list()]
+            
+        vectors = np.stack(payload_df["vector"].to_list()).astype(np.float32)   
 
-        manifold_df = self.analyzer.run(vectors=vectors, accessions=accessions)
+        manifold_df = self.analyzer.run(vectors=vectors, accessions=accessions, kingdoms=kingdoms)
         manifold_df.write_parquet(MANIFOLD_OUTPUT)
         logger.info("Saved manifold output to %s", MANIFOLD_OUTPUT)
 

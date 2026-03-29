@@ -74,15 +74,27 @@ def main():
     
     # Wait slightly to ensure science kernel launch
     import time
+    import numpy as np
     time.sleep(2)
-    
+
     main_window = ExpediaMainWindow(ui.bridge, loop)
     main_window.show()
-    
-    # Note: For production, we'd fetch the manifold parquet here and render it bounds
-    # e.g., main_window.map_view.render_points(...)
-    
-    exit_code = app.exec()
+
+    # Load initial manifold if exists
+    manifold_path = Path("E:/EXPEDIA_Data/temp/manifold_latest.parquet")
+    if manifold_path.exists():
+        try:
+            df = pl.read_parquet(manifold_path)
+            accessions = df["accession"].to_list()
+            # Handle potential older schemas
+            kingdoms = df["kingdom"].to_list() if "kingdom" in df.columns else None
+            outlier_scores = df["outlier_score"].to_numpy() if "outlier_score" in df.columns else None
+            xyz = df.select(["x", "y", "z"]).to_numpy()
+            cluster_ids = df["cluster_id"].to_numpy()
+            main_window.map_view.render_points(accessions, xyz, cluster_ids, kingdoms, outlier_scores)
+            print(f"Loaded {len(accessions)} manifold points into UI.")
+        except Exception as e:
+            print("Failed to load manifold:", e)
     
     # Cleanup
     ui.stop()

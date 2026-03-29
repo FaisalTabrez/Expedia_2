@@ -67,15 +67,21 @@ class SurveillancePanel(QWidget):
                 )
                 if result.get("status") == "ok":
                     consensus = result.get("consensus", {})
-                    status = consensus.get("status", "UNKNOWN")
+                    summary = consensus.get("summary", {})
+                    status_text = summary.get("classification", "UNKNOWN")
+                    anomaly_str = summary.get("anomaly", "None")
                     
-                    # Update label in UI thread (PySide6 generally tolerates simple setText from thread, but QMetaObject.invokeMethod is safer)
-                    self.results_label.setText(f"Status: {status}\nConsensus: {consensus}")
+                    # Formulate display text
+                    display_text = f"Status: {status_text}\nAnomaly: {anomaly_str}\n"
+
+                    # Update label in UI thread
+                    self.results_label.setText(display_text)
 
                     # Highlight neighbors
                     neighbors = result.get("neighbors", [])
                     if neighbors:
-                        self.map_widget.highlight_query(neighbors)
+                        is_anomaly = anomaly_str in ("EXTREME NOVELTY", "CHIMERIC/HIGHLY DIVERGENT")
+                        self.map_widget.highlight_query(neighbors, anomaly=is_anomaly)
                 else:
                     self.results_label.setText(f"Error: {result.get('message')}")
             except Exception as e:

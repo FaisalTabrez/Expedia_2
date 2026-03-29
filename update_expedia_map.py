@@ -1,4 +1,6 @@
-import asyncio
+from pathlib import Path
+
+content = """import asyncio
 import numpy as np
 import pyvista as pv
 from typing import List, Sequence
@@ -17,7 +19,7 @@ KINGDOM_COLORS = {
 DEFAULT_COLOR = [128, 128, 128]
 
 class ExpediaMap(QWidget):
-    """3D visualization widget for EXPEDIA manifolds using PyVista and Qt."""
+    \"\"\"3D visualization widget for EXPEDIA manifolds using PyVista and Qt.\"\"\"
 
     def __init__(self, bridge_client: BridgeClient, loop: asyncio.AbstractEventLoop = None, parent: QWidget | None = None) -> None:
         super().__init__(parent)
@@ -180,3 +182,6 @@ class ExpediaMap(QWidget):
             self.hazard_state = not self.hazard_state
             self._draw_marker(color)
             self.plotter.render()
+"""
+
+Path("src/expedia_map.py").write_text(content)
