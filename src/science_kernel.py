@@ -16,121 +16,137 @@ class ScienceKernel:
     Encapsulates the high-parameter Nucleotide Transformer model (embeddings managed externally),
     LanceDB interface, and manifold learning libraries (UMAP/HDBSCAN).
     """
-    def __init__(self, table_name: str = "sequences"):
-        self.db_path = self._find_data_volume()
-        if not self.db_path:
-            raise FileNotFoundError("EXPEDIA_Data folder not found on D:, E:, or F: drives.")
-        
-        logger.info(f"Connecting to LanceDB at {self.db_path}")
-        self.db = lancedb.connect(self.db_path)
-        self.table_name = table_name
-        self.table = self._init_table()
+    import asyncio
+    import logging
+    from pathlib import Path
+    from typing import Any, Dict, List
 
-    def _find_data_volume(self) -> Optional[str]:
-        """
-        Dynamic Discovery: Script the "EXPEDIA_Data" folder scan to handle drive letter shifting.
-        """
-        possible_drives = ["D:\\", "E:\\", "F:\\"]
-        target_folder = "EXPEDIA_Data"
-        
-        for drive in possible_drives:
-            path = os.path.join(drive, target_folder)
-            if os.path.exists(path):
-                logger.info(f"Found EXPEDIA_Data at {path}")
-                return path
-        
-        return None
+    import hdbscan
+    import numpy as np
+    import polars as pl
+    import umap
+    from sklearn.preprocessing import normalize
 
-    def _init_table(self):
-        """
-        Connect to the table. If not exists, it should probably be created by ingestion script.
-        This assumes the table exists or will be created lazily.
-        """
-        try:
-            tbl = self.db.open_table(self.table_name)
-            # Check/Create HNSW Index
-            # Note: Index creation is typically done once after ingestion.
-            # We can check if index exists, but LanceDB API for checking index existence varies.
-            # For now, we assume index is managed or we can trigger it.
-            return tbl
-        except Exception as e:
-            logger.warning(f"Table {self.table_name} not found. Waiting for ingestion. Error: {e}")
-            return None
+    from src.bridge import BridgeServer
+    from src.taxonomy import calculate_consensus_lineage
 
-    def create_index(self):
-        """
-        Create an HNSW index (M=16, ef_construction=200).
-        """
-        if self.table:
-            logger.info("Creating HNSW index...")
-            self.table.create_index(metric="l2", vector_column_name="vector", index_type="IVF_PQ", num_partitions=256, num_sub_vectors=96) 
-            # Wait, user SPECIFICALLY requested HNSW. 
-            # LanceDB supports IVF_PQ extensively. HNSW support depends on version.
-            # Assuming newest version or "HNSW" instruction overrides previous IVF-PQ in prompt.
-            # The prompt says: "Index: Create an HNSW index (M=16, ef_construction=200)."
-            # Using 'IVF_HNSW' if available or fallback to standard create_index parameters if distinct.
-            # Standard LanceDB `create_index` usually defaults to IVF-PQ. 
-            # Let's try to pass specific parameters if the library allows, or just note it.
-            # Python SDK: table.create_index(metric="l2", index_type="IVF_PQ"...) 
-            # Actually, modern LanceDB supports vector index with 'IVF_PQ' or diskann. 
-            # Pure HNSW in LanceDB is often via 'IVF_HNSW' or similar in recent updates.
-            # I will use a generic placeholder for HNSW configuration as requested.
-            # For strict compliance with "HNSW (M=16, ef_construction=200)":
-            # Note: LanceDB's disk-based index is typically IVF-PQ based. 
-            # The user requested HNSW specifically. I will attempt to configure it as requested.
-            pass
+    logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+    logger = logging.getLogger("science_kernel")
 
-    def search(self, vector: List[float], k: int = 50) -> Dict[str, Any]:
-        """
-        Search: Implement the "Dual-Tier" taxonomy lookup.
-        Returns a JSON-RPC compatible dictionary.
-        """
-        if not self.table:
-            return {"error": "Table not initialized"}
+    E_TEMP_DIR = Path("E:/EXPEDIA_Data/temp")
+    MANIFOLD_OUTPUT = E_TEMP_DIR / "manifold_latest.parquet"
 
-        # Search
-        results = self.table.search(vector).limit(k).to_list()
-        
-        # Dual-Tier Taxonomy Logic (Simplified: Consensus of neighbors)
-        # In a real implementation, we'd query TaxonKit or metadata.
-        # Here we just return the raw results formatted for JSON-RPC.
-        
-        return {
-            "jsonrpc": "2.0",
-            "result": {
-                "count": len(results),
-                "matches": results
-            },
-            "id": 1 
-        }
 
-    def run_avalanche_pipeline(self, vectors: np.ndarray):
-        """
-        The Avalanche Standard: L2 -> UMAP (10D) -> HDBSCAN.
-        """
-        logger.info("Running Avalanche Pipeline...")
-        
-        # 1. L2 Normalization
-        normalized_vectors = normalize(vectors, norm='l2')
-        
-        # 2. UMAP Reduction to 10D
-        reducer = umap.UMAP(n_components=10, random_state=42) # 10D as requested
-        embedding_10d = reducer.fit_transform(normalized_vectors)
-        
-        # 3. HDBSCAN Clustering
-        clusterer = hdbscan.HDBSCAN(min_cluster_size=15, metric='euclidean', cluster_selection_method='eom')
-        labels = clusterer.fit_predict(embedding_10d)
-        
-        # Flag Outliers (-1)
-        outliers = np.where(labels == -1)[0]
-        logger.info(f"Identified {len(outliers)} Potential Novel Species (PNS).")
-        
-        return {
-            "embedding_10d": embedding_10d.tolist(), # Serialize for JSON
-            "labels": labels.tolist(),
-            "outliers_indices": outliers.tolist()
-        }
+    class AvalancheAnalyzer:
+        """Avalanche analytics pipeline for 768D latent vectors."""
 
-if __name__ == "__main__":
-    # Test stub
-    pass
+        def __init__(self, random_state: int = 42) -> None:
+            self.random_state = random_state
+
+        def run(self, vectors: np.ndarray, accessions: List[str]) -> pl.DataFrame:
+            if vectors.ndim != 2 or vectors.shape[1] != 768:
+                raise ValueError("Expected latent vectors with shape (N, 768)")
+            if len(accessions) != vectors.shape[0]:
+                raise ValueError("accessions length must match vectors row count")
+
+            logger.info("Avalanche Step 1/4: L2 normalization")
+            norm_vectors = normalize(vectors, norm="l2")
+
+            logger.info("Avalanche Step 2/4: UMAP to 10D")
+            reducer_10d = umap.UMAP(
+                n_components=10,
+                low_memory=True,
+                random_state=self.random_state,
+                n_neighbors=30,
+                min_dist=0.0,
+                metric="cosine",
+            )
+            embedding_10d = reducer_10d.fit_transform(norm_vectors)
+
+            logger.info("Avalanche Step 3/4: UMAP to 3D")
+            reducer_3d = umap.UMAP(
+                n_components=3,
+                low_memory=True,
+                random_state=self.random_state,
+                n_neighbors=30,
+                min_dist=0.0,
+                metric="cosine",
+            )
+            embedding_3d = reducer_3d.fit_transform(norm_vectors)
+
+            logger.info("Avalanche Step 4/4: HDBSCAN on 10D")
+            clusterer = hdbscan.HDBSCAN(
+                min_cluster_size=30,
+                min_samples=10,
+                metric="euclidean",
+                cluster_selection_method="eom",
+                prediction_data=True,
+            )
+            cluster_labels = clusterer.fit_predict(embedding_10d)
+            outlier_scores = clusterer.outlier_scores_
+
+            manifold_df = pl.DataFrame(
+                {
+                    "accession": accessions,
+                    "x": embedding_3d[:, 0],
+                    "y": embedding_3d[:, 1],
+                    "z": embedding_3d[:, 2],
+                    "cluster_id": cluster_labels,
+                    "outlier_score": outlier_scores,
+                }
+            )
+            return manifold_df
+
+
+    class ScienceKernelService:
+        """Science-side service exposed via BridgeServer JSON-RPC."""
+
+        def __init__(self) -> None:
+            self.analyzer = AvalancheAnalyzer()
+            E_TEMP_DIR.mkdir(parents=True, exist_ok=True)
+
+        async def run_avalanche(self, params: Dict[str, Any]) -> Dict[str, Any]:
+            payload_df: pl.DataFrame
+            if "payload_df" in params and isinstance(params["payload_df"], pl.DataFrame):
+                payload_df = params["payload_df"]
+            else:
+                vectors = np.asarray(params.get("vectors", []), dtype=np.float32)
+                accessions = params.get("accessions", [])
+                payload_df = pl.DataFrame({"accession": accessions, "vector": vectors.tolist()})
+
+            if payload_df.is_empty():
+                raise ValueError("No vectors received for avalanche pipeline")
+
+            accessions = payload_df["accession"].to_list()
+            vectors = np.asarray(payload_df["vector"].to_list(), dtype=np.float32)
+
+            manifold_df = self.analyzer.run(vectors=vectors, accessions=accessions)
+            manifold_df.write_parquet(MANIFOLD_OUTPUT)
+            logger.info("Saved manifold output to %s", MANIFOLD_OUTPUT)
+
+            return {
+                "status": "ok",
+                "payload_path": str(MANIFOLD_OUTPUT),
+                "row_count": manifold_df.height,
+                "signal": "manifold_ready",
+            }
+
+        async def ping(self, params: Dict[str, Any]) -> Dict[str, Any]:
+            return {"status": "alive", "echo": params}
+
+        async def consensus_lineage(self, params: Dict[str, Any]) -> Dict[str, Any]:
+            neighbors = params.get("neighbors", [])
+            return calculate_consensus_lineage(neighbors)
+
+
+    async def main() -> None:
+        service = ScienceKernelService()
+        server = BridgeServer(host="127.0.0.1", port=8899)
+        server.register_method("ping", service.ping)
+        server.register_method("run_avalanche", service.run_avalanche)
+        server.register_method("consensus_lineage", service.consensus_lineage)
+        await server.serve_forever()
+
+
+    if __name__ == "__main__":
+        asyncio.run(main())

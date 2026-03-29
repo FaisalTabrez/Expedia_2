@@ -10,3 +10,8 @@ pyarrow
 torch
 transformers
 einops
+tenacity
+tqdm
+PySide6
+pyvista
+pyvistaqt
