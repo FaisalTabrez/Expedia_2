@@ -1,38 +1,28 @@
 """
 EXPEDIA Demo Configuration
 ===========================
-Overrides production pipeline_config.py for a scoped demo run:
+Overrides production pipeline_config.py for a scoped demo run.
 
-  Hardware:   64 GB USB pen drive  (local phases 1–3, 5–7)
-  Compute:    Google Colab T4/A100  (Phase 4 embedding only)
-  Scale:      ~2M sequences  (Marine + Bacteria subset — fits on USB)
-  Storage:    ~35 GB total across all phases
+  Scale:    ~2M sequences  (Marine + Benthic subset)
+  Storage:  ~35 GB — all inside the project directory (EXPEDIA_Data/)
+  Compute:  Google Colab T4/A100 for Phase 4 embedding
 
-Import pattern
---------------
-Every phase already imports its constants from pipeline_config.  To use demo
-settings, set the environment variable before the process starts:
+Usage
+-----
+Set the env-var once before any imports, then call apply_demo_config():
 
-    # In a terminal or at the top of a notebook:
     import os
     os.environ["EXPEDIA_DEMO"] = "1"
-    os.environ["EXPEDIA_ROOT"] = "/path/to/usb/EXPEDIA_Data"   # optional override
+    # Optional — defaults to EXPEDIA_Data/ next to the code files:
+    os.environ["EXPEDIA_ROOT"] = "/absolute/path/to/EXPEDIA_Data"
 
-Then in each phase file, add ONE line after the pipeline_config import:
+    import pipeline_config          # must come first
+    from demo_config import apply_demo_config
+    apply_demo_config()
 
-    from pipeline_config import *        # existing line
-    if os.environ.get("EXPEDIA_DEMO"):
-        from demo_config import *        # overlay demo values
+Or just run a phase directly:
 
-This keeps production code untouched — the demo overlay is purely additive.
-
-Alternatively, run any phase directly with demo settings:
-
-    python -c "
-    import os; os.environ['EXPEDIA_DEMO']='1'
-    from demo_config import apply_demo_config; apply_demo_config()
-    from phase2_deduplication import run_deduplication; run_deduplication()
-    "
+    EXPEDIA_DEMO=1 python phase2_deduplication.py
 """
 
 from __future__ import annotations
@@ -48,63 +38,31 @@ from pathlib import Path
 
 def apply_demo_config() -> None:
     """
-    Call this once (before importing any phase module) to inject all demo
-    overrides into the pipeline_config module namespace.
+    Inject all demo overrides into the pipeline_config module namespace.
 
-    This approach means every phase module that does:
-        from pipeline_config import EMBED_BATCH_SIZE
-    will see the demo value, because we mutate the module object in-place.
+    Every phase module that imports from pipeline_config will automatically
+    see the demo values because we mutate the live module object.
     """
     import pipeline_config as cfg
 
     # -----------------------------------------------------------------------
-    # Resolve roots
+    # Single project root — raw data, embeddings, index all live here
     # -----------------------------------------------------------------------
+    project_root = Path(r"C:\Volume D\Expedia_2\Expedia_Data").resolve()
 
-    # USB drive root — honour env-var, otherwise use the auto-detected root
-    # (which may already be the USB if it has an EXPEDIA_Data folder on it)
-    usb_root = Path(os.environ.get("EXPEDIA_ROOT", str(cfg.EXPEDIA_ROOT)))
-
-    # Colab Drive root — where Phase 4 outputs land during embedding
-    # On Colab this resolves to /content/drive/MyDrive/EXPEDIA_Data
-    # Locally it falls back to the same usb_root
-    drive_root_str = os.environ.get(
-        "EXPEDIA_DRIVE_ROOT",
-        "/content/drive/MyDrive/EXPEDIA_Data"
-    )
-    drive_root = Path(drive_root_str)
-    if not drive_root.exists():
-        # Not on Colab — use USB for everything
-        drive_root = usb_root
+    # Re-initialise the directory layout against the project root so every
+    # sub-path is consistent. DirectoryLayout.__post_init__ creates all dirs.
+    cfg.EXPEDIA_ROOT = project_root
+    cfg.DIRS         = cfg.DirectoryLayout(root=project_root)
 
     # -----------------------------------------------------------------------
-    # Override DirectoryLayout  (USB root stays, embeddings go to Drive)
+    # Phase 1 — Scoped NCBI query  (Marine + Benthic → ~2M records, ~12 GB)
     # -----------------------------------------------------------------------
+    cfg.NCBI_DATASETS_BIN     = r"C:\Volume D\Expedia_2\NCBI_Exe\datasets.exe"
+    cfg.NCBI_QUERY_TERMS      = ["Marine", "Benthic"]
+    cfg.NCBI_EXPECTED_RECORDS = 2_000_000
+    cfg.NCBI_EXPECTED_SIZE_GB = 12
 
-    # Re-initialise DIRS against the USB root to get correct sub-paths
-    cfg.EXPEDIA_ROOT = usb_root
-    cfg.DIRS         = cfg.DirectoryLayout(root=usb_root)
-
-    # Embeddings sub-dir lives on Drive (large, needs persistence across
-    # Colab disconnects) — override just the embeddings sub-paths
-    demo_embed_dir = drive_root / "04_embeddings"
-    demo_embed_dir.mkdir(parents=True, exist_ok=True)
-    cfg.DIRS.embeddings = demo_embed_dir
-
-    # Checkpoints also live on Drive so Colab resumes survive disconnects
-    demo_ckpt_dir = drive_root / "checkpoints"
-    demo_ckpt_dir.mkdir(parents=True, exist_ok=True)
-    cfg.DIRS.checkpoints = demo_ckpt_dir
-
-    # -----------------------------------------------------------------------
-    # Phase 1 — Scoped NCBI query  (Marine + Bacteria only → ~2M records)
-    # -----------------------------------------------------------------------
-
-    cfg.NCBI_QUERY_TERMS      = ["Marine", "Benthic"]    # narrowed from 6 terms
-    cfg.NCBI_EXPECTED_RECORDS = 2_000_000                # ~2M estimated
-    cfg.NCBI_EXPECTED_SIZE_GB = 12                       # ~12 GB raw FASTA
-
-    # Re-derive dependent paths from the new DIRS
     cfg.DEHYDRATED_ZIP    = cfg.DIRS.raw_fasta / "ncbi_dataset_dehydrated.zip"
     cfg.DEHYDRATED_DIR    = cfg.DIRS.raw_fasta / "ncbi_dataset"
     cfg.DATA_REPORT_JSONL = (
@@ -116,84 +74,59 @@ def apply_demo_config() -> None:
     # -----------------------------------------------------------------------
     # Phase 2 — Deduplication
     # -----------------------------------------------------------------------
-
-    cfg.DUCKDB_MEMORY_LIMIT = "2GB"        # conservative for USB-backed temp files
+    cfg.DUCKDB_MEMORY_LIMIT = "2GB"
     cfg.ACCESSION_KEEP_LIST = cfg.DIRS.dedup_fasta / "keep_accessions.txt"
     cfg.DEDUP_FASTA_PATH    = cfg.DIRS.dedup_fasta / "deduplicated_marine_demo.fasta"
     cfg.MMSEQS2_CLUSTER_DIR = cfg.DIRS.dedup_fasta / "mmseqs2_cluster"
     cfg.MMSEQS2_REP_FASTA   = cfg.DIRS.dedup_fasta / "representative_marine_demo.fasta"
-    cfg.DEDUP_CHECKPOINT    = cfg.DIRS.checkpoints / "phase2_dedup.json"
+    cfg.DEDUP_CHECKPOINT    = cfg.DIRS.checkpoints  / "phase2_dedup.json"
 
     # -----------------------------------------------------------------------
     # Phase 3 — Taxonomy
     # -----------------------------------------------------------------------
-
-    cfg.TAXON_CHUNK_SIZE       = 20_000    # smaller chunks — fewer sequences
-    cfg.TAXONOMY_TSV           = cfg.DIRS.taxonomy / "lineages_demo.tsv"
-    cfg.TAXONOMY_CHECKPOINT    = cfg.DIRS.checkpoints / "phase3_taxonomy.json"
-
-    # -----------------------------------------------------------------------
-    # Phase 4 — Embedding  (Colab T4/A100)
-    # -----------------------------------------------------------------------
-
-    # Colab T4  = 16 GB VRAM  →  batch 64  safely  (128 if A100)
-    # Auto-detect: if an A100 is available push to 128, else stay at 64
-    _colab_batch = _detect_colab_batch_size()
-    cfg.EMBED_BATCH_SIZE   = _colab_batch
-    cfg.EMBED_MAX_LENGTH   = 512           # shorter context for speed on demo seqs
-    cfg.EMBED_CHECKPOINT_N = 5_000         # checkpoint every 5k (shorter sessions)
-
-    # All embedding outputs go to Google Drive for persistence
-    cfg.EMBED_OUTPUT_NPY = drive_root / "04_embeddings" / "embeddings_demo.npy"
-    cfg.EMBED_IDS_TXT    = drive_root / "04_embeddings" / "embedding_accession_ids_demo.txt"
-    cfg.EMBED_CHECKPOINT = drive_root / "checkpoints"   / "phase4_embedding.json"
-
-    # Model cache on Colab's local /content  (faster I/O, re-downloaded each session
-    # if not already on Drive — see notebook for Drive model caching logic)
-    colab_model_cache = Path("/content/models/GenomeOcean-4B")
-    drive_model_cache = drive_root / "resources" / "models" / "GenomeOcean-4B"
-    if colab_model_cache.exists():
-        cfg.GENOME_OCEAN_LOCAL_DIR = colab_model_cache
-    elif drive_model_cache.exists():
-        cfg.GENOME_OCEAN_LOCAL_DIR = drive_model_cache
-    else:
-        # Will pull from HuggingFace and cache to Drive on first run
-        cfg.GENOME_OCEAN_LOCAL_DIR = drive_model_cache
+    cfg.TAXON_CHUNK_SIZE    = 20_000
+    cfg.TAXONOMY_TSV        = cfg.DIRS.taxonomy    / "lineages_demo.tsv"
+    cfg.TAXONOMY_CHECKPOINT = cfg.DIRS.checkpoints / "phase3_taxonomy.json"
 
     # -----------------------------------------------------------------------
-    # Phase 5 — LanceDB  (USB, smaller index)
+    # Phase 4 — Embedding  (Colab GPU; outputs stay in project dir)
     # -----------------------------------------------------------------------
+    cfg.EMBED_BATCH_SIZE      = _detect_colab_batch_size()
+    cfg.EMBED_MAX_LENGTH      = 512
+    cfg.EMBED_CHECKPOINT_N    = 5_000
 
-    # sqrt(2_000_000) ≈ 1414 → nearest power of 2 = 2048
-    cfg.IVF_NUM_PARTITIONS = 512           # conservative for 2M records on USB
+    cfg.EMBED_OUTPUT_NPY = cfg.DIRS.embeddings / "embeddings_demo.npy"
+    cfg.EMBED_IDS_TXT    = cfg.DIRS.embeddings / "embedding_accession_ids_demo.txt"
+    cfg.EMBED_CHECKPOINT = cfg.DIRS.checkpoints / "phase4_embedding.json"
+
+    # Model weights cache — inside the project so they persist across sessions
+    cfg.GENOME_OCEAN_LOCAL_DIR = cfg.DIRS.models / "GenomeOcean-4B"
+
+    # -----------------------------------------------------------------------
+    # Phase 5 — LanceDB  (sqrt(2M) ≈ 1414 → 512 partitions for demo scale)
+    # -----------------------------------------------------------------------
+    cfg.IVF_NUM_PARTITIONS = 512
     cfg.LANCEDB_CHECKPOINT = cfg.DIRS.checkpoints / "phase5_lancedb.json"
 
     # -----------------------------------------------------------------------
     # Phase 6 — Clustering
     # -----------------------------------------------------------------------
-
-    cfg.HDBSCAN_MIN_CLUSTER_SIZE = 15      # smaller — fewer total sequences
+    cfg.HDBSCAN_MIN_CLUSTER_SIZE = 15
     cfg.HDBSCAN_MIN_SAMPLES      = 3
-    cfg.UMAP_LOW_MEMORY          = False   # 2M points fits in RAM; skip disk-backed ANN
+    cfg.UMAP_LOW_MEMORY          = False   # 2M points fits in RAM
     cfg.CLUSTER_CHECKPOINT       = cfg.DIRS.checkpoints / "phase6_clustering.json"
 
     # -----------------------------------------------------------------------
     # Logging
     # -----------------------------------------------------------------------
-
     cfg.LOG_FILE  = cfg.DIRS.logs / "expedia_demo.log"
-    cfg.LOG_LEVEL = "DEBUG"                # verbose for demo / debugging
+    cfg.LOG_LEVEL = "DEBUG"
 
-    # -----------------------------------------------------------------------
-    # Demo-only constants (not in production config)
-    # -----------------------------------------------------------------------
-
-    cfg.IS_DEMO          = True
-    cfg.DEMO_DRIVE_ROOT  = drive_root
-    cfg.DEMO_USB_ROOT    = usb_root
+    # Demo-only markers
+    cfg.IS_DEMO       = True
+    cfg.DEMO_DATA_DIR = project_root
 
     _print_demo_summary(cfg)
-
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -228,16 +161,15 @@ def _print_demo_summary(cfg) -> None:
         sep,
         "  EXPEDIA DEMO CONFIGURATION ACTIVE",
         sep,
-        f"  Runtime env  : {cfg.RUNTIME_ENV}",
-        f"  USB root     : {cfg.DEMO_USB_ROOT}",
-        f"  Drive root   : {cfg.DEMO_DRIVE_ROOT}",
-        f"  NCBI query   : {' OR '.join(cfg.NCBI_QUERY_TERMS)}",
-        f"  Expected seqs: ~{cfg.NCBI_EXPECTED_RECORDS:,}",
-        f"  Embed batch  : {cfg.EMBED_BATCH_SIZE}",
-        f"  Checkpoint N : {cfg.EMBED_CHECKPOINT_N:,}",
+        f"  Runtime env   : {cfg.RUNTIME_ENV}",
+        f"  Data root     : {cfg.DEMO_DATA_DIR}",
+        f"  NCBI query    : {' OR '.join(cfg.NCBI_QUERY_TERMS)}",
+        f"  Expected seqs : ~{cfg.NCBI_EXPECTED_RECORDS:,}",
+        f"  Embed batch   : {cfg.EMBED_BATCH_SIZE}",
+        f"  Checkpoint N  : {cfg.EMBED_CHECKPOINT_N:,}",
         f"  IVF partitions: {cfg.IVF_NUM_PARTITIONS}",
-        f"  Model cache  : {cfg.GENOME_OCEAN_LOCAL_DIR}",
-        f"  Embed output : {cfg.EMBED_OUTPUT_NPY}",
+        f"  Model cache   : {cfg.GENOME_OCEAN_LOCAL_DIR}",
+        f"  Embed output  : {cfg.EMBED_OUTPUT_NPY}",
         sep,
         "",
     ]

@@ -14,129 +14,40 @@ from pathlib import Path
 
 
 # ---------------------------------------------------------------------------
-# Volume / directory discovery
+# Root directory resolution
 # ---------------------------------------------------------------------------
-
-# Priority-ordered list of discovery strategies
-#   1. EXPEDIA_ROOT env-var  — explicit override, highest priority
-#   2. Google Drive mount    — /content/drive/MyDrive (Colab) or ~/gdrive
-#   3. Windows drive letters — scan A:\ … Z:\ for EXPEDIA_Data folder
-#   4. /mnt/* subdirs        — WSL / Linux external volumes
-#   5. Home directory        — ~/EXPEDIA_Data
-#   6. CWD fallback          — ./EXPEDIA_Data  (auto-created)
-
-def _is_gdrive_mount(p: Path) -> bool:
-    """
-    Return True if p looks like a mounted Google Drive root.
-    Colab mounts at /content/drive/MyDrive; some local rclone setups use ~/gdrive.
-    We check for the sentinel .ignore or a writable marker rather than a fixed path
-    so the detection works across both Colab and local rclone mounts.
-    """
-    if not p.exists():
-        return False
-    # Colab canonical path
-    if str(p).startswith("/content/drive"):
-        return True
-    # rclone / gocryptfs style: look for a .gdrive_root marker file
-    if (p / ".gdrive_root").exists():
-        return True
-    return False
-
-
-def _gdrive_candidates() -> list[Path]:
-    """
-    Return all plausible Google Drive root paths for this environment.
-    Colab mounts at /content/drive/MyDrive.
-    Local rclone typically mounts at ~/gdrive or /mnt/gdrive.
-    """
-    candidates = []
-    # Colab standard
-    colab_root = Path("/content/drive/MyDrive")
-    if colab_root.exists():
-        candidates.append(colab_root / "EXPEDIA_Data")
-    # Colab Shared Drives (less common)
-    colab_shared = Path("/content/drive/Shareddrives")
-    if colab_shared.exists():
-        for d in colab_shared.iterdir():
-            candidates.append(d / "EXPEDIA_Data")
-    # rclone local mounts
-    for rclone_root in [Path.home() / "gdrive", Path("/mnt/gdrive")]:
-        candidates.append(rclone_root / "EXPEDIA_Data")
-    return candidates
-
+#
+# All pipeline data lives inside the project directory.
+# Raw FASTA, embeddings, taxonomy, LanceDB index — everything is co-located.
+#
+# Resolution order:
+#   1. EXPEDIA_ROOT env-var       — explicit override, highest priority
+#   2. EXPEDIA_Data/ next to this file — normal case when data sits beside code
+#   3. EXPEDIA_Data/ under CWD    — fallback, created automatically if absent
 
 def find_expedia_root() -> Path:
     """
-    Resolve the canonical EXPEDIA_Data root using the priority chain above.
+    Resolve and return the EXPEDIA_Data root directory.
 
-    Environment variable override (highest priority):
-        export EXPEDIA_ROOT=/path/to/EXPEDIA_Data
-        # or in Colab:
-        import os; os.environ["EXPEDIA_ROOT"] = "/content/drive/MyDrive/EXPEDIA_Data"
-
-    Returns a Path that is guaranteed to exist (created if necessary).
+    Override at any time with:
+        export EXPEDIA_ROOT=/absolute/path/to/EXPEDIA_Data   # shell
+        os.environ["EXPEDIA_ROOT"] = "..."                   # Python / Colab
     """
-    # 1. Explicit env-var override
     env_override = os.environ.get("EXPEDIA_ROOT", "").strip()
     if env_override:
-        p = Path(env_override)
+        p = Path(env_override).resolve()
         p.mkdir(parents=True, exist_ok=True)
         return p
 
-    candidates: list[Path] = []
+    # Sibling of this config file — works when data lives next to the code
+    alongside = Path(__file__).resolve().parent / "EXPEDIA_Data"
+    if alongside.exists():
+        return alongside
 
-    # 2. Google Drive mounts (Colab + rclone)
-    candidates.extend(_gdrive_candidates())
-
-    # 3. Windows drive letters
-    if platform.system() == "Windows":
-        import string
-        for letter in string.ascii_uppercase:
-            candidates.append(Path(f"{letter}:/EXPEDIA_Data"))
-
-    # 4. /mnt/* subdirectories  (WSL, external USB, Linux)
-    mnt = Path("/mnt")
-    if mnt.exists():
-        try:
-            for sub in sorted(mnt.iterdir()):
-                # Skip Colab's /mnt/... virtual filesystems that aren't storage
-                if sub.name in {"proc", "sys", "dev", "run"}:
-                    continue
-                candidates.append(sub / "EXPEDIA_Data")
-        except PermissionError:
-            pass
-
-    # 5. Home directory
-    candidates.append(Path.home() / "EXPEDIA_Data")
-
-    for c in candidates:
-        if c.exists():
-            return c
-
-    # 6. CWD fallback — auto-create so the rest of the config doesn't crash
-    fallback = Path.cwd() / "EXPEDIA_Data"
+    # CWD fallback — created automatically on first run
+    fallback = Path.cwd().resolve() / "EXPEDIA_Data"
     fallback.mkdir(parents=True, exist_ok=True)
     return fallback
-
-
-def _detect_environment() -> str:
-    """
-    Return a short string describing the current runtime environment.
-    Used for informational logging only.
-    """
-    if Path("/content").exists() and Path("/content/drive").exists():
-        return "colab+drive"
-    if Path("/content").exists():
-        return "colab"
-    if os.environ.get("COLAB_RELEASE_TAG"):
-        return "colab"
-    if platform.system() == "Windows":
-        return "windows"
-    if "microsoft" in platform.uname().release.lower():
-        return "wsl"
-    return "linux"
-
-
 RUNTIME_ENV:  str  = _detect_environment()
 EXPEDIA_ROOT: Path = find_expedia_root()
 

@@ -1,0 +1,7 @@
+2026-04-13 22:47:56,078  [INFO]  phase1.acquisition — RUN: datasets version
+2026-04-13 23:07:58,833  [INFO]  phase1.acquisition — RUN: datasets version
+2026-04-13 23:09:36,931  [INFO]  phase1.acquisition — RUN: C:\Volume D\Expedia_2\NCBI_Exe\datasets.exe version
+2026-04-13 23:09:38,462  [INFO]  phase1.acquisition — NCBI Datasets CLI: datasets version: 18.23.0
+2026-04-13 23:09:38,463  [INFO]  phase1.acquisition — Stage 1 — downloading manifest (dehydrated) for query: Aquatic[filter] OR Marine[filter] OR Freshwater[filter] OR Benthic[filter] OR Pelagic[filter] OR Planktonic[filter]
+2026-04-13 23:09:38,464  [INFO]  phase1.acquisition — Expected records: ~45,819,927
+2026-04-13 23:09:38,464  [INFO]  phase1.acquisition — RUN: C:\Volume D\Expedia_2\NCBI_Exe\datasets.exe download nucleotide --query Aquatic[filter] OR Marine[filter] OR Freshwater[filter] OR Benthic[filter] OR Pelagic[filter] OR Planktonic[filter] --filename C:\Volume D\Expedia_2\EXPEDIA_Data\01_raw_fasta\ncbi_dataset_dehydrated.zip --dehydrated
